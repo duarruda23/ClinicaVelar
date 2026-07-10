@@ -1,0 +1,95 @@
+/* ============================================================
+   Clínica Velar — Design Tokens
+   Direção: minimalismo premium · branco gelo / cinza / preto
+   Uso: importar este arquivo e consumir via var(--velar-*)
+   ============================================================ */
+
+:root {
+  /* Cores */
+  --velar-black: #0E0E10;   /* texto forte, CTA principal, âncoras, footer */
+  --velar-ink:   #26282B;   /* títulos, texto sobre claro */
+  --velar-gray:  #8A8E93;   /* texto secundário, legendas, labels */
+  --velar-line:  #E2E4E6;   /* bordas, divisórias */
+  --velar-mist:  #EEF0F1;   /* fundos de seção alternados */
+  --velar-ice:   #F5F6F7;   /* fundo base */
+  --velar-white: #FFFFFF;   /* cards, hero, respiro */
+
+  /* Tipografia */
+  --velar-font-display: 'Inter', 'Neue Montreal', system-ui, sans-serif;
+  --velar-font-body:    'Inter', system-ui, sans-serif;
+
+  /* Escala tipográfica (desktop) */
+  --fs-h1: 60px;  --lh-h1: 1.02;  --fw-h1: 300;
+  --fs-h2: 38px;  --lh-h2: 1.08;  --fw-h2: 300;
+  --fs-h3: 21px;  --lh-h3: 1.3;   --fw-h3: 500;
+  --fs-body: 17px; --lh-body: 1.7; --fw-body: 400;
+  --fs-label: 12px; --tracking-label: 0.14em;
+
+  /* Espaçamento (8pt) */
+  --space-1: 8px;  --space-2: 16px; --space-3: 24px;
+  --space-4: 32px; --space-5: 48px; --space-6: 64px; --space-7: 96px;
+
+  /* Layout */
+  --container: 1180px;
+  --radius: 4px;           /* cantos mínimos */
+  --section-pad-y: 96px;   /* padding vertical de seção (desktop) */
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 400ms;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --fs-h1: 34px;
+    --fs-h2: 26px;
+    --fs-body: 16px;
+    --section-pad-y: 56px;
+  }
+}
+
+/* ------------------------------------------------------------
+   Referência para Tailwind (tailwind.config.js → theme.extend)
+   ------------------------------------------------------------
+   colors: {
+     velar: {
+       black: '#0E0E10',
+       ink:   '#26282B',
+       gray:  '#8A8E93',
+       line:  '#E2E4E6',
+       mist:  '#EEF0F1',
+       ice:   '#F5F6F7',
+       white: '#FFFFFF',
+     },
+   },
+   fontFamily: {
+     display: ['Inter', 'Neue Montreal', 'system-ui', 'sans-serif'],
+     body:    ['Inter', 'system-ui', 'sans-serif'],
+   },
+   ------------------------------------------------------------ */
+
+/* Utilitários base sugeridos */
+.velar-cta {
+  background: var(--velar-black);
+  color: #fff;
+  padding: 15px 34px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-block;
+  transition: opacity var(--dur) var(--ease);
+}
+.velar-cta:hover { opacity: 0.85; }
+.velar-cta--ghost {
+  background: transparent;
+  color: var(--velar-ink);
+  border: 1px solid var(--velar-ink);
+}
+.velar-label {
+  font-size: var(--fs-label);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  color: var(--velar-gray);
+  font-weight: 600;
+}

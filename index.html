@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Tags -->
+  <title>Clínica Velar — Estética Premium em Caruaru/PE</title>
+  <meta name="description" content="Complexo estético multidisciplinar de alto padrão em Caruaru. Harmonização facial e masculina, estética corporal, melasma, nutrição e tricologia com atendimento humano e exclusivo.">
+  <meta name="keywords" content="Clínica Velar, estética premium Caruaru, harmonização facial Caruaru, harmonização masculina Caruaru, estética corporal, skincare, nutrição, tricologia, Laisy Velar">
+  <meta name="author" content="Clínica Velar">
+  
+  <!-- OpenGraph Tags -->
+  <meta property="og:title" content="Clínica Velar — Estética Premium em Caruaru/PE">
+  <meta property="og:description" content="Harmonização facial e masculina, estética corporal, melasma, nutrição e tricologia com atendimento humano e exclusivo no coração de Caruaru.">
+  <meta property="og:image" content="Assets/Espaco/recepcao.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  
+  <!-- Google Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Design Tokens -->
+  <link rel="stylesheet" href="tokens.css">
+  
+  <style>
+    /* Reset & Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    body {
+      font-family: var(--velar-font-body);
+      background-color: var(--velar-ice);
+      color: var(--velar-ink);
+      line-height: var(--lh-body);
+      font-size: var(--fs-body);
+      font-weight: var(--fw-body);
+      overflow-x: hidden;
+    }
+    
+    /* Layout Container */
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--space-3);
+      width: 100%;
+    }
+    
+    /* Section Padding */
+    .section {
+      padding: var(--section-pad-y) 0;
+      position: relative;
+    }
+    
+    .section-dark {
+      background-color: var(--velar-black);
+      color: var(--velar-mist);
+    }
+    
+    .section-mist {
+      background-color: var(--velar-mist);
+    }
+    
+    .section-white {
+      background-color: var(--velar-white);
+    }
+    
+    /* Global Elements */
+    .eyebrow {
+      display: inline-block;
+      font-size: var(--fs-label);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-label);
+      color: var(--velar-gray);
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+    }
+    
+    .section-dark .eyebrow {
+      color: #9a9da0;
+    }
+    
+    .h1, .h2, .h3 {
+      font-family: var(--velar-font-display);
+      font-weight: var(--fw-h1);
+      letter-spacing: -0.02em;
+    }
+    
+    .h1 {
+      font-size: var(--fs-h1);
+      line-height: var(--lh-h1);
+      color: var(--velar-black);
+      margin-bottom: var(--space-3);
+    }
+    
+    .h2 {
+      font-size: var(--fs-h2);
+      line-height: var(--lh-h2);
+      color: var(--velar-ink);
+      margin-bottom: var(--space-3);
+    }
+    
+    .section-dark .h2 {
+      color: var(--velar-white);
+    }
+    
+    .h3 {
+      font-size: var(--fs-h3);
+      line-height: var(--lh-h3);
+      color: var(--velar-ink);
+      font-weight: var(--fw-h3);
+      margin-bottom: var(--space-1);
+    }
+    
+    .sub {
+      color: var(--velar-gray);
+      font-size: var(--fs-body);
+      max-width: 48ch;
+      margin-bottom: var(--space-4);
+    }
+    
+    .section-dark .sub {
+      color: #b9bcc0;
+    }
+    
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px var(--space-4);
+      height: 52px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all var(--dur) var(--ease);
+      min-width: 180px;
+    }
+    
+    .btn-primary {
+      background-color: var(--velar-black);
+      color: var(--velar-white);
+    }
+    
+    .btn-primary:hover {
+      opacity: 0.85;
+      background-color: var(--velar-ink);
+    }
+    
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--velar-ink);
+      border-color: var(--velar-ink);
+    }
+    
+    .btn-secondary:hover {
+      background-color: var(--velar-ink);
+      color: var(--velar-white);
+    }
+    
+    .btn-dark-primary {
+      background-color: var(--velar-white);
+      color: var(--velar-black);
+    }
+    
+    .btn-dark-primary:hover {
+      opacity: 0.9;
+    }
+    
+    .btn-dark-secondary {
+      background-color: transparent;
+      color: var(--velar-white);
+      border-color: var(--velar-white);
+    }
+    
+    .btn-dark-secondary:hover {
+      background-color: var(--velar-white);
+      color: var(--velar-black);
+    }
+    
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-bottom: var(--space-2);
+    }
+    
+    .microcopy {
+      font-size: 12px;
+      color: var(--velar-gray);
+      letter-spacing: 0.02em;
+    }
+    
+    .section-dark .microcopy {
+      color: #7b7e82;
+    }
+    
+    /* Header Sticky */
+    header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background-color: rgba(245, 246, 247, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--velar-line);
+      z-index: 100;
+      transition: all var(--dur) var(--ease);
+    }
+    
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+    
+    .logo {
+      font-family: var(--velar-font-display);
+      color: var(--velar-black);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      text-decoration: none;
+      transition: opacity var(--dur) var(--ease);
+    }
+    
+    .logo:hover {
+      opacity: 0.7;
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: var(--space-4);
+    }
+    
+    .nav-link {
+      color: var(--velar-gray);
+      text-decoration: none;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+      transition: color var(--dur) var(--ease);
+      position: relative;
+      padding: var(--space-1) 0;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: var(--velar-black);
+      transition: width var(--dur) var(--ease);
+    }
+    
+    .nav-link:hover {
+      color: var(--velar-black);
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .header-cta {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--velar-black);
+      text-decoration: none;
+      border-bottom: 1px solid var(--velar-black);
+      padding-bottom: 2px;
+      font-weight: 600;
+      transition: opacity var(--dur) var(--ease);
+    }
+    
+    .header-cta:hover {
+      opacity: 0.7;
+    }
+    
+    /* Burger Button */
+    .burger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      position: relative;
+      z-index: 101;
+    }
+    
+    .burger-line {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background-color: var(--velar-black);
+      margin-bottom: 6px;
+      transition: all var(--dur) var(--ease);
+    }
+    
+    .burger-line:last-child {
+      margin-bottom: 0;
+    }
+    
+    /* Mobile Overlay Menu */
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100vh;
+      background-color: var(--velar-white);
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-4);
+      transition: right var(--dur) var(--ease);
+      list-style: none;
+    }
+    
+    .mobile-nav.active {
+      right: 0;
+    }
+    
+    .mobile-nav .nav-link {
+      font-size: 20px;
+      color: var(--velar-ink);
+    }
+    
+    /* Hero Section */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: var(--space-6);
+      align-items: center;
+    }
+    
+    .hero-image-container {
+      position: relative;
+      width: 100%;
+      height: 520px;
+      overflow: hidden;
+      border-radius: var(--radius);
+    }
+    
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(40%) contrast(105%);
+      transition: transform var(--dur) var(--ease);
+    }
+    
+    .hero-image-container:hover .hero-image {
+      transform: scale(1.02);
+    }
+    
+    /* Trust Bar Section */
+    .trust-bar {
+      padding: var(--space-4) 0;
+      border-top: 1px solid var(--velar-line);
+      border-bottom: 1px solid var(--velar-line);
+    }
+    
+    .trust-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    
+    .trust-item {
+      flex: 1;
+      text-align: center;
+      border-left: 1px solid var(--velar-line);
+    }
+    
+    .trust-item:first-child {
+      border-left: none;
+    }
+    
+    .trust-number {
+      font-family: var(--velar-font-display);
+      font-size: 44px;
+      font-weight: 300;
+      color: var(--velar-black);
+      line-height: 1.1;
+    }
+    
+    .trust-label {
+      font-size: 11px;
+      color: var(--velar-gray);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-label);
+      margin-top: var(--space-1);
+      font-weight: 600;
+    }
+    
+    /* Objectives Section ("Qual é o seu objetivo?") */
+    .obj-list {
+      margin-top: var(--space-5);
+      border-top: 1px solid var(--velar-line);
+    }
+    
+    .obj-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid var(--velar-line);
+      text-decoration: none;
+      color: var(--velar-ink);
+      transition: all var(--dur) var(--ease);
+    }
+    
+    .obj-item:hover {
+      padding-left: var(--space-2);
+      background-color: rgba(238, 240, 241, 0.4);
+    }
+    
+    .obj-name {
+      font-family: var(--velar-font-display);
+      font-size: 24px;
+      font-weight: 300;
+      display: flex;
+      align-items: center;
+    }
+    
+    .obj-badge {
+      font-family: var(--velar-font-body);
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border: 1px solid var(--velar-ink);
+      color: var(--velar-ink);
+      padding: 3px 8px;
+      margin-left: var(--space-2);
+      border-radius: 20px;
+    }
+    
+    .obj-arrow {
+      font-size: 24px;
+      font-weight: 300;
+      transition: transform var(--dur) var(--ease);
+    }
+    
+    .obj-item:hover .obj-arrow {
+      transform: translateX(10px);
+    }
+    
+    /* Experiência Velar (Dark Section) */
+    .exp-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: var(--space-6);
+      align-items: center;
+      margin-bottom: var(--space-5);
+    }
+    
+    .exp-video-wrapper {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background-color: #1a1a1c;
+    }
+    
+    .exp-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(20%) brightness(90%);
+    }
+    
+    .exp-thumbs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-3);
+    }
+    
+    .exp-thumb-card {
+      position: relative;
+      height: 150px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid #26282b;
+    }
+    
+    .exp-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(40%);
+      transition: all var(--dur) var(--ease);
+    }
+    
+    .exp-thumb-card:hover .exp-thumb-img {
+      filter: grayscale(0%);
+      transform: scale(1.05);
+    }
+    
+    .exp-thumb-title {
+      position: absolute;
+      bottom: var(--space-1);
+      left: var(--space-2);
+      font-size: 11px;
+      color: var(--velar-white);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      z-index: 2;
+    }
+    
+    .exp-thumb-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(14, 14, 16, 0.7) 0%, rgba(14, 14, 16, 0) 60%);
+      z-index: 1;
+    }
+    
+    /* Tratamentos Section */
+    .treat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-5);
+    }
+    
+    .treat-card {
+      background-color: var(--velar-white);
+      border: 1px solid var(--velar-line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all var(--dur) var(--ease);
+    }
+    
+    .treat-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--velar-gray);
+      box-shadow: 0 10px 30px rgba(14, 14, 16, 0.03);
+    }
+    
+    .treat-img-wrapper {
+      height: 250px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .treat-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(30%) contrast(102%);
+      transition: transform var(--dur) var(--ease);
+    }
+    
+    .treat-card:hover .treat-img {
+      transform: scale(1.03);
+    }
+    
+    .treat-info {
+      padding: var(--space-3);
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    
+    .treat-desc {
+      font-size: 14px;
+      color: var(--velar-gray);
+      margin-bottom: var(--space-3);
+      flex-grow: 1;
+    }
+    
+    .treat-link {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--velar-ink);
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      position: relative;
+    }
+    
+    .treat-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--velar-ink);
+      transition: width var(--dur) var(--ease);
+    }
+    
+    .treat-link:hover::after {
+      width: 0;
+    }
+    
+    /* Resultados & Prova Section */
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      align-items: center;
+    }
+    
+    .results-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2);
+    }
+    
+    .comparison-box {
+      border-radius: var(--radius);
+      overflow: hidden;
+      height: 280px;
+      position: relative;
+      border: 1px solid var(--velar-line);
+    }
+    
+    .comparison-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(20%);
+    }
+    
+    .comparison-label {
+      position: absolute;
+      top: var(--space-2);
+      left: var(--space-2);
+      background-color: rgba(14, 14, 16, 0.8);
+      color: var(--velar-white);
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    
+    .testimonial-box {
+      border-left: 1px solid var(--velar-line);
+      padding-left: var(--space-5);
+    }
+    
+    .quote-text {
+      font-family: var(--velar-font-display);
+      font-size: 22px;
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--velar-ink);
+      margin-bottom: var(--space-3);
+      position: relative;
+    }
+    
+    .quote-author {
+      font-size: 14px;
+      color: var(--velar-gray);
+      font-weight: 500;
+    }
+    
+    /* Equipe Section */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-3);
+      margin-top: var(--space-5);
+    }
+    
+    .team-card {
+      background-color: transparent;
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .team-img-wrapper {
+      height: 300px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--velar-line);
+    }
+    
+    .team-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: all var(--dur) var(--ease);
+    }
+    
+    .team-card:hover .team-img {
+      filter: grayscale(0%);
+      transform: scale(1.02);
+    }
+    
+    .team-name {
+      font-family: var(--velar-font-body);
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: var(--space-2);
+      margin-bottom: 2px;
+      color: var(--velar-ink);
+    }
+    
+    .team-role {
+      font-size: 13px;
+      color: var(--velar-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    /* FAQ Section */
+    .faq-container {
+      margin-top: var(--space-5);
+      max-width: 820px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .faq-item {
+      border-top: 1px solid var(--velar-line);
+      padding: var(--space-3) 0;
+    }
+    
+    .faq-item:last-child {
+      border-bottom: 1px solid var(--velar-line);
+    }
+    
+    .faq-trigger {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      font-family: var(--velar-font-body);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--velar-ink);
+      cursor: pointer;
+      padding: var(--space-1) 0;
+    }
+    
+    .faq-icon {
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--velar-gray);
+      transition: transform var(--dur) var(--ease);
+    }
+    
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--dur) var(--ease);
+    }
+    
+    .faq-content p {
+      padding-top: var(--space-2);
+      padding-bottom: var(--space-1);
+      font-size: 15px;
+      color: var(--velar-gray);
+      line-height: 1.6;
+    }
+    
+    .faq-item.active .faq-content {
+      max-height: 200px; /* Suficiente para o texto */
+    }
+    
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+    
+    /* Final CTA Section */
+    .cta-final {
+      text-align: center;
+      padding: 120px 0;
+    }
+    
+    .cta-final .h2 {
+      max-width: 20ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .cta-final .sub {
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: var(--space-4);
+    }
+    
+    /* Footer Section */
+    footer {
+      background-color: var(--velar-black);
+      color: #9a9da0;
+      border-top: 1px solid #26282b;
+      padding: 60px 0 40px;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 1fr 1fr;
+      gap: var(--space-5);
+      margin-bottom: var(--space-5);
+    }
+    
+    .footer-col h5 {
+      color: var(--velar-white);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: var(--space-2);
+      font-weight: 600;
+    }
+    
+    .footer-col p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: #c4c7ca;
+    }
+    
+    .footer-logo {
+      color: var(--velar-white);
+      font-size: 24px;
+      letter-spacing: 0.35em;
+      text-decoration: none;
+      display: block;
+      margin-bottom: var(--space-1);
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid #1c1d1f;
+      padding-top: var(--space-3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: #6a6d71;
+    }
+    
+    /* Floating WhatsApp Button */
+    .wa-float {
+      position: fixed;
+      right: 30px;
+      bottom: 30px;
+      width: 56px;
+      height: 56px;
+      background-color: var(--velar-black);
+      color: var(--velar-white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      z-index: 90;
+      transition: all var(--dur) var(--ease);
+      border: 1px solid #26282b;
+    }
+    
+    .wa-float:hover {
+      transform: translateY(-5px);
+      background-color: #26282b;
+    }
+    
+    .wa-float svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+    
+    /* Responsive Media Queries */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+      }
+      .hero-image-container {
+        height: 380px;
+      }
+      .treat-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-menu, .header-cta {
+        display: none;
+      }
+      
+      .burger {
+        display: block;
+      }
+      
+      .header-container {
+        height: 70px;
+      }
+      
+      .trust-grid {
+        flex-wrap: wrap;
+        gap: var(--space-3) 0;
+      }
+      
+      .trust-item {
+        flex: none;
+        width: 50%;
+      }
+      
+      .trust-item:nth-child(2n+1) {
+        border-left: none;
+      }
+      
+      .obj-name {
+        font-size: 18px;
+      }
+      
+      .exp-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+      }
+      
+      .exp-video-wrapper {
+        height: 280px;
+      }
+      
+      .treat-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .results-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-5);
+      }
+      
+      .testimonial-box {
+        border-left: none;
+        border-top: 1px solid var(--velar-line);
+        padding-left: 0;
+        padding-top: var(--space-4);
+      }
+      
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-2);
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-container">
+      <a href="#" class="logo">VELAR</a>
+      
+      <ul class="nav-menu">
+        <li><a href="#sobre" class="nav-link">Sobre</a></li>
+        <li><a href="#objetivos" class="nav-link">Objetivos</a></li>
+        <li><a href="#experiencia" class="nav-link">Estrutura</a></li>
+        <li><a href="#tratamentos" class="nav-link">Tratamentos</a></li>
+        <li><a href="#faq" class="nav-link">Dúvidas</a></li>
+      </ul>
+      
+      <a href="https://wa.me/5581981604549?text=Ol%C3%A1!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20geral" target="_blank" class="header-cta" id="header-cta-btn">Agendar</a>
+      
+      <button class="burger" aria-label="Menu" id="burger-btn">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </div>
+  </header>
+  
+  <!-- MOBILE NAV OVERLAY -->
+  <ul class="mobile-nav" id="mobile-nav-menu">
+    <li><a href="#sobre" class="nav-link">Sobre</a></li>
+    <li><a href="#objetivos" class="nav-link">Objetivos</a></li>
+    <li><a href="#experiencia" class="nav-link">Estrutura</a></li>
+    <li><a href="#tratamentos" class="nav-link">Tratamentos</a></li>
+    <li><a href="#faq" class="nav-link">Dúvidas</a></li>
+    <li><a href="https://wa.me/5581981604549?text=Ol%C3%A1!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20geral" target="_blank" class="btn btn-primary" style="margin-top: 20px;">Agendar Avaliação</a></li>
+  </ul>
+
+  <!-- 1. HERO -->
+  <section class="section section-white" id="sobre">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Estética Premium · Caruaru</span>
+        <h1 class="h1">Menos é<br>mais você.</h1>
+        <p class="sub">Harmonização facial, estética corporal, melasma, nutrição e tricologia num complexo multidisciplinar pensado no detalhe. Autoestima elevada com olhar clínico e atendimento exclusivamente humano.</p>
+        
+        <div class="btn-group">
+          <a href="https://wa.me/5581981604549?text=Ol%C3%A1!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20Cl%C3%ADnica%20Velar" target="_blank" class="btn btn-primary" id="hero-primary-cta">Agendar Avaliação</a>
+          <a href="#tratamentos" class="btn btn-secondary">Tratamentos</a>
+        </div>
+        <div class="microcopy">Resposta em até 1h · Sem compromisso</div>
+      </div>
+      
+      <div class="hero-image-container">
+        <img src="Assets/Espaco/recepcao.jpg" alt="Recepção sofisticada da Clínica Velar com iluminação suave e design minimalista" class="hero-image" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. TRUST BAR -->
+  <section class="trust-bar section-white">
+    <div class="container trust-grid">
+      <div class="trust-item">
+        <div class="trust-number">+8</div>
+        <div class="trust-label">Anos de atuação</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-number">5k+</div>
+        <div class="trust-label">Pacientes atendidos</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-number">98%</div>
+        <div class="trust-label">Satisfação clínica</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-number">4</div>
+        <div class="trust-label">Especialistas integrados</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. OBJETIVOS (LISTA INTERATIVA) -->
+  <section class="section section-mist" id="objetivos">
+    <div class="container">
+      <span class="eyebrow">A direção certa para o seu cuidado</span>
+      <h2 class="h2">Qual é o seu objetivo?</h2>
+      
+      <div class="obj-list">
+        <a href="harmonizacao-facial.html" class="obj-item" id="obj-fac">
+          <span class="obj-name">Harmonização facial</span>
+          <span class="obj-arrow">→</span>
+        </a>
+        
+        <a href="harmonizacao-facial-masculina.html" class="obj-item" id="obj-masc">
+          <span class="obj-name">Harmonização masculina <span class="obj-badge">Diferencial</span></span>
+          <span class="obj-arrow">→</span>
+        </a>
+        
+        <a href="estetica-corporal.html" class="obj-item" id="obj-corp">
+          <span class="obj-name">Estética corporal</span>
+          <span class="obj-arrow">→</span>
+        </a>
+        
+        <a href="skincare-limpeza-de-pele.html" class="obj-item" id="obj-skin">
+          <span class="obj-name">Skincare & Limpeza de pele</span>
+          <span class="obj-arrow">→</span>
+        </a>
+
+        <a href="tratamento-de-melasma.html" class="obj-item" id="obj-melasma">
+          <span class="obj-name">Tratamento de melasma</span>
+          <span class="obj-arrow">→</span>
+        </a>
+        
+        <a href="nutricao.html" class="obj-item" id="obj-nutr">
+          <span class="obj-name">Nutrição</span>
+          <span class="obj-arrow">→</span>
+        </a>
+        
+        <a href="tricologia-tratamento-capilar.html" class="obj-item" id="obj-trico">
+          <span class="obj-name">Tricologia · capilar</span>
+          <span class="obj-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. EXPERIÊNCIA VELAR -->
+  <section class="section section-dark" id="experiencia">
+    <div class="container">
+      <div class="exp-grid">
+        <div>
+          <span class="eyebrow">A pressa fica do lado de fora</span>
+          <h2 class="h2">A diferença sente-se ao entrar.</h2>
+          <p class="sub">Recepção acolhedora, lounge com maître dedicado, salas reservadas e uma iluminação projetada com precisão. Da arquitetura contemporânea ao atendimento próximo — criamos uma experiência de silêncio e refinamento para o seu momento.</p>
+        </div>
+        
+        <div class="exp-video-wrapper">
+          <video autoplay muted loop playsinline preload="metadata" poster="Assets/Espaco/lounge.jpg" class="exp-video">
+            <source src="Assets/Video/experiencia.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos HTML5.
+          </video>
+        </div>
+      </div>
+      
+      <div class="exp-thumbs">
+        <div class="exp-thumb-card">
+          <img src="Assets/Espaco/recepcao.jpg" alt="Recepção da clínica Velar" class="exp-thumb-img" loading="lazy">
+          <span class="exp-thumb-title">Recepção</span>
+        </div>
+        <div class="exp-thumb-card">
+          <img src="Assets/Espaco/lounge.jpg" alt="Lounge de espera da clínica Velar" class="exp-thumb-img" loading="lazy">
+          <span class="exp-thumb-title">Lounge</span>
+        </div>
+        <div class="exp-thumb-card">
+          <img src="Assets/Espaco/salas_de_consulta.png" alt="Salas de atendimento da clínica Velar" class="exp-thumb-img" loading="lazy">
+          <span class="exp-thumb-title">Consultórios</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. TRATAMENTOS -->
+  <section class="section section-ice" id="tratamentos">
+    <div class="container">
+      <span class="eyebrow">Nossas especialidades</span>
+      <h2 class="h2">Tratamentos</h2>
+      <p class="sub">Abordagem multidisciplinar e procedimentos amparados por tecnologia científica de ponta.</p>
+      
+      <div class="treat-grid">
+        <!-- 1 -->
+        <div class="treat-card">
+          <div class="treat-img-wrapper">
+            <img src="Assets/Tratamentos/harmonizacao_facial.png" alt="Tratamento de Harmonização Facial na Clínica Velar" class="treat-img" loading="lazy">
+          </div>
+          <div class="treat-info">
+            <h3 class="h3">Harmonização Facial</h3>
+            <p class="treat-desc">Melhoria de proporções e traços faciais de forma elegante e natural.</p>
+            <a href="harmonizacao-facial.html" class="treat-link" id="treat-fac-link">Saber mais</a>
+          </div>
+        </div>
+        <!-- 2 -->
+        <div class="treat-card">
+          <div class="treat-img-wrapper">
+            <img src="Assets/Tratamentos/harmonizacao_masculina.png" alt="Tratamento de Harmonização Masculina na Clínica Velar" class="treat-img" loading="lazy">
+          </div>
+          <div class="treat-info">
+            <h3 class="h3">Harmonização Masculina</h3>
+            <p class="treat-desc">Definição do contorno mandibular, mento e projeções para um visual masculino e marcante.</p>
+            <a href="harmonizacao-facial-masculina.html" class="treat-link" id="treat-masc-link">Saber mais</a>
+          </div>
+        </div>
+        <!-- 3 -->
+        <div class="treat-card">
+          <div class="treat-img-wrapper">
+            <img src="Assets/Tratamentos/skincare_melasma.png" alt="Limpeza de pele e Skincare na Clínica Velar" class="treat-img" loading="lazy">
+          </div>
+          <div class="treat-info">
+            <h3 class="h3">Limpeza de Pele & Skincare</h3>
+            <p class="treat-desc">Higienização profunda, controle de oleosidade e viço sob medida para sua pele.</p>
+            <a href="skincare-limpeza-de-pele.html" class="treat-link" id="treat-skin-link">Saber mais</a>
+          </div>
+        </div>
+        <!-- 4 -->
+        <div class="treat-card">
+          <div class="treat-img-wrapper">
+            <img src="Assets/Tratamentos/melasma.png" alt="Tratamento de Melasma na Clínica Velar" class="treat-img" loading="lazy">
+          </div>
+          <div class="treat-info">
+            <h3 class="h3">Tratamento de Melasma</h3>
+            <p class="treat-desc">Protocolos seguros para atenuação e controle de manchas e hiperpigmentações.</p>
+            <a href="tratamento-de-melasma.html" class="treat-link" id="treat-melasma-link">Saber mais</a>
+          </div>
+        </div>
+        <!-- 5 -->
+        <div class="treat-card">
+          <div class="treat-img-wrapper">
+            <img src="Assets/Tratamentos/estetica_corporal.png" alt="Tratamento de Estética Corporal na Clínica Velar" class="treat-img" loading="lazy">
+          </div>
+          <div class="treat-info">
+            <h3 class="h3">Estética Corporal</h3>
+            <p class="treat-desc">Soluções científicas avançadas para modelagem, flacidez e gordura localizada.</p>
+            <a href="estetica-corporal.html" class="treat-link" id="treat-corp-link">Saber mais</a>
+          </div>
+        </div>
+        <!-- 6 -->
+        <div class="treat-card">
+          <div class="treat-img-wrapper">
+            <img src="Assets/Tratamentos/nutricao.png" alt="Acompanhamento de Nutrição Clínica na Clínica Velar" class="treat-img" loading="lazy">
+          </div>
+          <div class="treat-info">
+            <h3 class="h3">Nutrição</h3>
+            <p class="treat-desc">Plano alimentar individualizado focado na saúde metabólica e resultados sustentáveis.</p>
+            <a href="nutricao.html" class="treat-link" id="treat-nutr-link">Saber mais</a>
+          </div>
+        </div>
+        <!-- 7 -->
+        <div class="treat-card">
+          <div class="treat-img-wrapper">
+            <img src="Assets/Tratamentos/tricologia.png" alt="Tratamento de Tricologia e Saúde Capilar na Clínica Velar" class="treat-img" loading="lazy">
+          </div>
+          <div class="treat-info">
+            <h3 class="h3">Tricologia Capilar</h3>
+            <p class="treat-desc">Prevenção da queda de cabelo e terapia para fortalecimento do couro cabeludo.</p>
+            <a href="tricologia-tratamento-capilar.html" class="treat-link" id="treat-trico-link">Saber mais</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. RESULTADOS & DEPOIMENTO -->
+  <section class="section section-white">
+    <div class="container results-grid">
+      <div>
+        <span class="eyebrow">Resultados reais</span>
+        <h2 class="h2">Naturalidade evidente</h2>
+        <p class="sub">Protocolos que preservam as características únicas de cada paciente, realçando os pontos fortes de forma sutil e harmoniosa.</p>
+        
+        <div class="results-comparison">
+          <div class="comparison-box">
+            <img src="Assets/Espaco/lounge.jpg" alt="Antes" class="comparison-img" loading="lazy">
+            <span class="comparison-label">Caso 01</span>
+          </div>
+          <div class="comparison-box">
+            <img src="Assets/Espaco/recepcao.jpg" alt="Depois" class="comparison-img" loading="lazy">
+            <span class="comparison-label">Caso 02</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-box">
+        <span class="eyebrow">Opinião de quem confia</span>
+        <p class="quote-text">"O ambiente é de outro nível, completamente fora do comum do mercado de estética. Cada detalhe da experiência e do atendimento te faz sentir cuidado e respeitado. Os resultados da harmonização são incrivelmente naturais."</p>
+        <div class="quote-author">— Mariana R. · Paciente desde 2024</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. EQUIPE (ESPECIALISTAS) -->
+  <section class="section section-mist" id="equipe">
+    <div class="container">
+      <span class="eyebrow">Corpo clínico multidisciplinar</span>
+      <h2 class="h2">Nossos Especialistas</h2>
+      <p class="sub">Profissionais seniores com ampla formação acadêmica integrados para cuidar de você de forma holística.</p>
+      
+      <div class="team-grid">
+        <!-- Dra. Laisy -->
+        <div class="team-card">
+          <div class="team-img-wrapper">
+            <img src="Assets/Equipe/Dra_Laisy_Velar_harmonizacao.jpg" alt="Dra. Laisy Velar - Especialista em Harmonização Facial" class="team-img" loading="lazy">
+          </div>
+          <div class="team-name">Dra. Laisy Velar</div>
+          <div class="team-role">Harmonização Facial & Skincare</div>
+        </div>
+        
+        <!-- Dr. Weverthon -->
+        <div class="team-card">
+          <div class="team-img-wrapper">
+            <img src="Assets/Equipe/Dr_Weverthon_Velar_estetica.jpg" alt="Dr. Weverthon Velar - Especialista em Estética Corporal" class="team-img" loading="lazy">
+          </div>
+          <div class="team-name">Dr. Weverthon Velar</div>
+          <div class="team-role">Medicina Estética & Corporal</div>
+        </div>
+        
+        <!-- Dr. Felipe -->
+        <div class="team-card">
+          <div class="team-img-wrapper">
+            <img src="Assets/Equipe/Dr_Felipe_Neri_nutricao.jpeg" alt="Dr. Felipe Neri - Nutricionista Clínico e Esportivo" class="team-img" loading="lazy">
+          </div>
+          <div class="team-name">Dr. Felipe Neri</div>
+          <div class="team-role">Nutrição Clínica & Performance</div>
+        </div>
+        
+        <!-- Adriana Nunes -->
+        <div class="team-card">
+          <div class="team-img-wrapper">
+            <img src="Assets/Equipe/Adriana_Nunes_tricologia.png" alt="Adriana Nunes - Tricologista Capilar" class="team-img" loading="lazy">
+          </div>
+          <div class="team-name">Adriana Nunes</div>
+          <div class="team-role">Tricologia & Saúde Capilar</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FAQ ACCORDION -->
+  <section class="section section-ice" id="faq">
+    <div class="container">
+      <span class="eyebrow">Dúvidas comuns</span>
+      <h2 class="h2" style="text-align: center;">Perguntas Frequentes</h2>
+      
+      <div class="faq-container">
+        <!-- 1 -->
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>Os procedimentos são dolorosos?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-content">
+            <p>Utilizamos anestésicos tópicos e injetáveis de alta performance e técnicas de aplicação avançadas com agulhas finas ou microcânulas para minimizar qualquer desconforto físico. A maioria dos pacientes relata apenas uma sensação de leve pressão.</p>
+          </div>
+        </div>
+        <!-- 2 -->
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>Quanto tempo dura o resultado da harmonização?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-content">
+            <p>A duração varia dependendo do tipo de preenchedor ou estimulador utilizado e do metabolismo do próprio paciente. Em geral, preenchimentos com ácido hialurônico duram entre 12 a 18 meses, enquanto bioestimuladores de colágeno podem agir por até 2 anos.</p>
+          </div>
+        </div>
+        <!-- 3 -->
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>A consulta de avaliação inicial tem custo?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-content">
+            <p>Sim. A nossa avaliação clínica inicial é uma consulta diagnóstica aprofundada de 60 minutos, na qual analisamos detalhadamente a estrutura de pele, simetria muscular e hábitos do paciente para traçar um plano exclusivo. Fale com nosso atendimento pelo WhatsApp para verificar valores e horários disponíveis.</p>
+          </div>
+        </div>
+        <!-- 4 -->
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>Vocês atendem ao público masculino?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-content">
+            <p>Sim. A harmonização facial masculina e os protocolos estéticos dedicados aos homens são uma das principais especialidades e diferenciais da Clínica Velar. Buscamos sempre destacar ângulos retos e traços marcantes característicos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. CTA FINAL -->
+  <section class="section section-dark cta-final">
+    <div class="container">
+      <span class="eyebrow">Agendas exclusivas</span>
+      <h2 class="h2">Sua próxima versão começa com uma avaliação.</h2>
+      <p class="sub">Atendimento personalizado com hora marcada em um dos endereços mais tradicionais de Caruaru.</p>
+      
+      <div style="margin-bottom: var(--space-2);">
+        <a href="https://wa.me/5581981604549?text=Ol%C3%A1!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20Cl%C3%ADnica%20Velar" target="_blank" class="btn btn-dark-primary" id="final-cta-btn">Agendar no WhatsApp</a>
+      </div>
+      <div class="microcopy">Vagas limitadas para este mês · Resposta rápida</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="#" class="footer-logo">VELAR</a>
+          <p>Complexo estético multidisciplinar. Referência em cuidado e alta performance.</p>
+        </div>
+        
+        <div class="footer-col">
+          <h5>Menu</h5>
+          <p style="display:flex; flex-direction:column; gap:6px;">
+            <a href="#sobre" style="color:#c4c7ca; text-decoration:none;">Sobre</a>
+            <a href="#objetivos" style="color:#c4c7ca; text-decoration:none;">Objetivos</a>
+            <a href="#experiencia" style="color:#c4c7ca; text-decoration:none;">Estrutura</a>
+            <a href="#tratamentos" style="color:#c4c7ca; text-decoration:none;">Tratamentos</a>
+          </p>
+        </div>
+        
+        <div class="footer-col">
+          <h5>Contato</h5>
+          <p>
+            +55 81 98160-4549<br>
+            clinicavelar@gmail.com
+          </p>
+        </div>
+        
+        <div class="footer-col">
+          <h5>Endereço</h5>
+          <p>
+            Av. Agamenon Magalhães, 1363<br>
+            Maurício de Nassau — Caruaru/PE
+          </p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div>&copy; 2026 Clínica Velar. Todos os direitos reservados.</div>
+        <div>Desenvolvido por Virgo Marketing</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/5581981604549?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20avalia%C3%A7%C3%B5es%20da%20Cl%C3%ADnica%20Velar" target="_blank" class="wa-float" aria-label="Fale conosco pelo WhatsApp" id="floating-wa-btn">
+    <svg viewBox="0 0 24 24">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.424 2.5 1.134 3.471L6.2 18.54l3.237-1.01c.908.57 1.979.907 3.125.908 3.182 0 5.767-2.586 5.768-5.766.002-3.187-2.575-5.77-5.77-5.77-1.12 0-2.185.318-3.096.87zm4.28 7.94c-.175.49-.9.89-1.24.93-.34.04-.68.17-2.2-.43-1.82-.72-2.98-2.56-3.07-2.68-.09-.12-.73-.97-.73-1.85 0-.88.46-1.31.62-1.48.16-.17.35-.21.47-.21.12 0 .23.01.33.01.11 0 .26-.04.41.32.16.38.53 1.3.58 1.4.05.1.09.22.01.38-.08.16-.16.26-.26.38-.1.12-.21.27-.3.38-.1.11-.21.23-.09.43.12.2.53.88 1.14 1.42.78.69 1.44.91 1.64 1.01.2.1.32.08.43-.05.11-.13.48-.56.61-.75.13-.19.26-.16.44-.1.18.06 1.14.54 1.34.64.2.1.33.15.38.23.05.09.05.51-.12.99z"/>
+    </svg>
+  </a>
+
+  <!-- INTERACTION SCRIPT -->
+  <script>
+    // FAQ Accordion Logic
+    const faqTriggers = document.querySelectorAll('.faq-trigger');
+    
+    faqTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const parent = trigger.parentElement;
+        const isActive = parent.classList.contains('active');
+        
+        // Close all faq items
+        document.querySelectorAll('.faq-item').forEach(item => {
+          item.classList.remove('active');
+          item.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+        });
+        
+        // Toggle the clicked one
+        if (!isActive) {
+          parent.classList.add('active');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Mobile Menu Toggle
+    const burgerBtn = document.getElementById('burger-btn');
+    const mobileNavMenu = document.getElementById('mobile-nav-menu');
+    
+    burgerBtn.addEventListener('click', () => {
+      mobileNavMenu.classList.toggle('active');
+      const lines = burgerBtn.querySelectorAll('.burger-line');
+      
+      if(mobileNavMenu.classList.contains('active')) {
+        lines[0].style.transform = 'translateY(7px) rotate(45deg)';
+        lines[1].style.opacity = '0';
+        lines[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+      } else {
+        lines[0].style.transform = 'none';
+        lines[1].style.opacity = '1';
+        lines[2].style.transform = 'none';
+      }
+    });
+
+    // Close mobile menu on nav link click
+    const mobileLinks = mobileNavMenu.querySelectorAll('.nav-link');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNavMenu.classList.remove('active');
+        const lines = burgerBtn.querySelectorAll('.burger-line');
+        lines[0].style.transform = 'none';
+        lines[1].style.opacity = '1';
+        lines[2].style.transform = 'none';
+      });
+    });
+
+    // Simple analytical trigger on WA clicks
+    const waButtons = [
+      'header-cta-btn', 
+      'hero-primary-cta', 
+      'final-cta-btn', 
+      'floating-wa-btn'
+    ];
+
+    waButtons.forEach(id => {
+      const btn = document.getElementById(id);
+      if (btn) {
+        btn.addEventListener('click', () => {
+          // Log pixel event simulation
+          console.log(`[Pixel Event] Clicked WhatsApp CTA: ${id}`);
+          if (typeof fbq !== 'undefined') {
+            fbq('track', 'Contact', { content_name: id });
+          }
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'click_whatsapp', { 'event_category': 'Engagement', 'event_label': id });
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!--
+  WIREFRAME: Landing Page de Captação — Clínica Velar (Caruaru/PE)
+  Direção: minimalismo premium — branco gelo / cinza / preto
+  Gerado por: design-landing-page skill · Virgo Marketing · 10/07/2026
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wireframe — LP Clínica Velar (minimalista)</title>
+<style>
+  :root{
+    --black:#0E0E10; --ink:#26282B; --gray:#8A8E93;
+    --line:#E2E4E6; --mist:#EEF0F1; --ice:#F5F6F7; --white:#FFFFFF;
+    --ph:#E4E6E8; --ph-tx:#A7ABAF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',system-ui,sans-serif;background:#C9CDD1;color:var(--ink);
+    padding-bottom:60px;-webkit-font-smoothing:antialiased;}
+  .disp{font-weight:300;letter-spacing:-.01em;}
+
+  /* Controles */
+  .controls{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:200;
+    display:flex;gap:6px;background:var(--white);padding:7px 12px;border-radius:6px;
+    box-shadow:0 6px 24px rgba(0,0,0,.18);align-items:center;}
+  .controls span{font-size:11px;font-weight:700;color:var(--black);margin-right:4px;letter-spacing:.1em;text-transform:uppercase;}
+  .ctrl-btn{padding:6px 14px;border:1px solid var(--black);border-radius:4px;background:var(--white);
+    cursor:pointer;font-weight:500;font-size:13px;color:var(--black);transition:.2s;}
+  .ctrl-btn.active{background:var(--black);color:#fff;}
+
+  /* Frame */
+  .frame-wrapper{max-width:1180px;margin:70px auto 30px;transition:max-width .3s;
+    box-shadow:0 14px 70px rgba(0,0,0,.16);background:var(--ice);}
+  .frame-wrapper.mobile{max-width:390px;}
+
+  /* Seções */
+  .sec{position:relative;padding:96px 64px;background:var(--ice);}
+  .sec-label{position:absolute;top:10px;left:16px;font-size:10px;font-weight:700;color:var(--gray);
+    text-transform:uppercase;letter-spacing:.12em;}
+  .frame-wrapper.mobile .sec{padding:56px 24px;}
+  .bg-mist{background:var(--mist);} .bg-white{background:var(--white);}
+  .bg-black{background:var(--black);} .bg-black *{color:#EDEDEE;}
+
+  .eyebrow{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--gray);font-weight:600;margin-bottom:22px;}
+  .h1{font-size:60px;line-height:1.02;color:var(--ink);margin:0 0 22px;}
+  .bg-black .h1{color:#fff;}
+  .h2{font-size:38px;line-height:1.08;color:var(--ink);margin:0 0 16px;}
+  .bg-black .h2{color:#fff;}
+  .frame-wrapper.mobile .h1{font-size:34px;} .frame-wrapper.mobile .h2{font-size:26px;}
+  .sub{font-size:17px;line-height:1.7;color:var(--gray);max-width:46ch;font-weight:400;}
+
+  .ph-img{background:var(--ph);display:flex;align-items:center;justify-content:center;
+    color:var(--ph-tx);font-size:12px;font-weight:500;text-align:center;padding:8px;letter-spacing:.02em;}
+
+  .cta{background:var(--black);color:#fff;padding:15px 34px;display:inline-block;
+    font-weight:500;font-size:14px;letter-spacing:.02em;margin-top:8px;cursor:default;}
+  .cta.ghost{background:transparent;border:1px solid var(--ink);color:var(--ink);}
+  .bg-black .cta{background:#fff;color:var(--black);}
+  .bg-black .cta.ghost{background:transparent;border:1px solid #EDEDEE;color:#EDEDEE;}
+  .micro{font-size:12px;color:var(--gray);margin-top:14px;letter-spacing:.02em;}
+
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .frame-wrapper.mobile .grid-2,.frame-wrapper.mobile .grid-3,.frame-wrapper.mobile .grid-4{grid-template-columns:1fr;gap:28px;}
+
+  /* trust minimal */
+  .trust{display:flex;justify-content:space-between;gap:20px;}
+  .frame-wrapper.mobile .trust{flex-wrap:wrap;}
+  .stat{flex:1;text-align:center;border-left:1px solid var(--line);padding:0 10px;}
+  .stat:first-child{border-left:none;}
+  .stat .num{font-size:42px;font-weight:300;color:var(--ink);line-height:1;letter-spacing:-.02em;}
+  .stat .lbl{font-size:12px;color:var(--gray);margin-top:10px;letter-spacing:.04em;}
+
+  /* objetivos — lista minimalista */
+  .objrow{display:flex;justify-content:space-between;align-items:baseline;padding:20px 0;border-top:1px solid var(--line);}
+  .objrow:last-child{border-bottom:1px solid var(--line);}
+  .objrow .name{font-size:22px;color:var(--ink);font-weight:400;}
+  .frame-wrapper.mobile .objrow .name{font-size:18px;}
+  .objrow .idx{font-size:12px;color:var(--gray);letter-spacing:.1em;}
+  .objrow .arrow{color:var(--ink);font-size:18px;}
+  .diff{font-size:10px;border:1px solid var(--ink);color:var(--ink);padding:2px 8px;margin-left:12px;
+    letter-spacing:.08em;text-transform:uppercase;vertical-align:middle;}
+
+  .card{background:transparent;}
+  .card h4{font-size:19px;color:var(--ink);margin:16px 0 6px;font-weight:500;}
+  .card p{font-size:14px;color:var(--gray);line-height:1.55;}
+  .card .more{color:var(--ink);font-weight:500;font-size:13px;margin-top:12px;display:inline-block;
+    border-bottom:1px solid var(--ink);padding-bottom:2px;}
+
+  .quote{font-size:20px;line-height:1.5;color:var(--ink);font-weight:300;max-width:60ch;}
+  .frame-wrapper.mobile .quote{font-size:17px;}
+
+  .note{background:#fff;border:1px dashed var(--gray);padding:9px 12px;font-size:12px;color:#5f636a;
+    margin-top:18px;max-width:440px;letter-spacing:.01em;}
+  .bg-black .note{background:#1a1a1c;border-color:#4a4d51;color:#b9bcc0;}
+
+  .fold{border-top:2px dashed #C2C6CA;position:relative;height:0;}
+  .fold::after{content:"⬆ FOLD MOBILE";position:absolute;right:14px;top:-9px;
+    background:#9A9DA0;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;letter-spacing:.06em;}
+
+  /* header */
+  .hdr{display:flex;align-items:center;justify-content:space-between;background:var(--ice);
+    padding:22px 64px;border-bottom:1px solid var(--line);}
+  .frame-wrapper.mobile .hdr{padding:16px 24px;}
+  .hdr .logo{color:var(--black);font-size:20px;font-weight:400;letter-spacing:.34em;}
+  .hdr nav{display:flex;gap:26px;}
+  .hdr nav span{color:var(--gray);font-size:12px;letter-spacing:.08em;text-transform:uppercase;}
+  .hdr .hcta{color:var(--black);font-size:12px;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--black);padding-bottom:3px;}
+  .frame-wrapper.mobile .hdr nav,.frame-wrapper.mobile .hdr .hcta{display:none;}
+  .burger{display:none;} .frame-wrapper.mobile .burger{display:block;color:var(--black);font-size:20px;}
+
+  .faqline{padding:22px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;
+    font-size:17px;color:var(--ink);font-weight:400;}
+  .faqline:last-child{border-bottom:1px solid var(--line);}
+  .faqline span{color:var(--gray);font-weight:300;font-size:20px;}
+
+  .wa{position:absolute;right:18px;bottom:18px;width:50px;height:50px;border-radius:50%;
+    background:var(--black);display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;
+    box-shadow:0 6px 18px rgba(0,0,0,.28);}
+
+  .footcol h5{color:#9a9da0;font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;}
+  .footcol p{color:#c4c7ca;font-size:13px;line-height:1.8;}
+</style>
+</head>
+<body>
+
+<div class="controls">
+  <span>Velar · minimal</span>
+  <button class="ctrl-btn active" onclick="setView('desktop',event)">🖥 Desktop</button>
+  <button class="ctrl-btn" onclick="setView('mobile',event)">📱 Mobile</button>
+</div>
+
+<div class="frame-wrapper" id="frame">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <div class="logo">VELAR</div>
+    <nav><span>Sobre</span><span>Tratamentos</span><span>Estrutura</span><span>Contato</span></nav>
+    <div class="hcta">Agendar</div>
+    <div class="burger">☰</div>
+  </div>
+
+  <!-- 1. HERO -->
+  <section class="sec bg-white" style="border-left:4px solid #C2C6CA;">
+    <span class="sec-label">01 — Hero</span>
+    <div class="grid-2">
+      <div>
+        <span class="eyebrow">Estética premium · Caruaru</span>
+        <h1 class="h1 disp">Menos é<br>mais você.</h1>
+        <p class="sub">Harmonização, corpo, pele e bem-estar num espaço pensado no detalhe. Autoestima com olhar clínico e atendimento humano.</p>
+        <div style="margin-top:30px;">
+          <span class="cta">Agendar avaliação</span>
+          <span class="cta ghost" style="margin-left:12px;">Tratamentos</span>
+        </div>
+        <div class="micro">Resposta em até 1h · Sem compromisso</div>
+      </div>
+      <div>
+        <div class="ph-img" style="height:420px">Foto — retrato / detalhe do rosto<br>P&amp;B ou dessaturada · 760×860</div>
+      </div>
+    </div>
+    <div class="note">Hero minimalista: 1 ideia, muito respiro. Headline curta com message match ao anúncio.</div>
+  </section>
+  <div class="fold"></div>
+
+  <!-- 2. TRUST BAR -->
+  <section class="sec bg-ice" style="padding-top:44px;padding-bottom:44px;">
+    <span class="sec-label">02 — Prova discreta</span>
+    <div class="trust">
+      <div class="stat"><div class="num">+8</div><div class="lbl">ANOS</div></div>
+      <div class="stat"><div class="num">5k+</div><div class="lbl">PACIENTES</div></div>
+      <div class="stat"><div class="num">98%</div><div class="lbl">SATISFAÇÃO</div></div>
+      <div class="stat"><div class="num">4</div><div class="lbl">ESPECIALISTAS</div></div>
+    </div>
+    <div class="note">Números reais da clínica antes de publicar. Manter discreto — não é o protagonista.</div>
+  </section>
+
+  <!-- 3. OBJETIVOS (lista minimalista) -->
+  <section class="sec bg-mist">
+    <span class="sec-label">03 — Qual seu objetivo?</span>
+    <h2 class="h2 disp">Qual é o seu objetivo?</h2>
+    <div style="margin-top:34px;">
+      <div class="objrow"><span class="name">Harmonização facial</span><span class="arrow">→</span></div>
+      <div class="objrow"><span class="name">Harmonização masculina<span class="diff">diferencial</span></span><span class="arrow">→</span></div>
+      <div class="objrow"><span class="name">Estética corporal</span><span class="arrow">→</span></div>
+      <div class="objrow"><span class="name">Skincare &amp; melasma</span><span class="arrow">→</span></div>
+      <div class="objrow"><span class="name">Nutrição</span><span class="arrow">→</span></div>
+      <div class="objrow"><span class="name">Tricologia · capilar</span><span class="arrow">→</span></div>
+    </div>
+    <div class="note">Cada linha abre um WhatsApp com mensagem pré-preenchida do objetivo (qualifica o lead).</div>
+  </section>
+
+  <!-- 4. EXPERIÊNCIA VELAR (assinatura) -->
+  <section class="sec bg-black">
+    <span class="sec-label" style="color:#6a6d71">04 — A Experiência Velar</span>
+    <div class="grid-2">
+      <div>
+        <span class="eyebrow" style="color:#9a9da0">A diferença sente-se ao entrar</span>
+        <h2 class="h2 disp">A pressa fica<br>do lado de fora.</h2>
+        <p class="sub" style="color:#b9bcc0">Recepção acolhedora, lounge com maître, salas reservadas e uma luz pensada no detalhe. Da arquitetura ao atendimento — tudo para você se sentir em casa.</p>
+        <div class="note">Território exclusivo da Velar. Nenhum concorrente em Caruaru comunica experiência sensorial.</div>
+      </div>
+      <div>
+        <video style="width:100%;height:380px;object-fit:cover;background:#1c1c1e;display:block;"
+               autoplay muted loop playsinline preload="metadata">
+          <source src="https://framerusercontent.com/assets/efXaIH73I0GqxASCWo9SzFYY0k.mp4" type="video/mp4">
+        </video>
+        <div style="font-size:11px;color:#6a6d71;margin-top:8px;letter-spacing:.04em;">▶ Vídeo do espaço · autoplay mudo em loop — dá dinamismo sem quebrar o minimalismo</div>
+      </div>
+    </div>
+    <div class="grid-3" style="margin-top:34px;">
+      <div class="ph-img" style="height:130px;background:#1c1c1e;color:#6a6d71">Recepção</div>
+      <div class="ph-img" style="height:130px;background:#1c1c1e;color:#6a6d71">Salas</div>
+      <div class="ph-img" style="height:130px;background:#1c1c1e;color:#6a6d71">Detalhes</div>
+    </div>
+  </section>
+
+  <!-- 5. TRATAMENTOS -->
+  <section class="sec bg-ice">
+    <span class="sec-label">05 — Tratamentos</span>
+    <h2 class="h2 disp">Tratamentos</h2>
+    <div class="grid-3" style="margin-top:36px;">
+      <div class="card"><div class="ph-img" style="height:230px">Foto · 460×580</div><h4>Harmonização facial</h4><p>Proporção e naturalidade.</p><span class="more">Ver</span></div>
+      <div class="card"><div class="ph-img" style="height:230px">Foto · 460×580</div><h4>Harmonização masculina</h4><p>Contorno e olhar másculo.</p><span class="more">Ver</span></div>
+      <div class="card"><div class="ph-img" style="height:230px">Foto · 460×580</div><h4>Skincare &amp; melasma</h4><p>Viço e pele uniforme.</p><span class="more">Ver</span></div>
+      <div class="card"><div class="ph-img" style="height:230px">Foto · 460×580</div><h4>Estética corporal</h4><p>Modelagem e firmeza.</p><span class="more">Ver</span></div>
+      <div class="card"><div class="ph-img" style="height:230px">Foto · 460×580</div><h4>Nutrição</h4><p>Resultado que se sustenta.</p><span class="more">Ver</span></div>
+      <div class="card"><div class="ph-img" style="height:230px">Foto · 460×580</div><h4>Tricologia</h4><p>Saúde capilar.</p><span class="more">Ver</span></div>
+    </div>
+    <div class="note">Minimalista: fotos consistentes (mesma luz/tom frio), sem card colorido, só título + 1 linha.</div>
+  </section>
+
+  <!-- 6. ANTES & DEPOIS + DEPOIMENTO (fundido) -->
+  <section class="sec bg-white">
+    <span class="sec-label">06 — Resultados &amp; prova</span>
+    <div class="grid-2">
+      <div>
+        <span class="eyebrow">Resultados reais</span>
+        <h2 class="h2 disp">Antes &amp; depois</h2>
+        <div class="grid-2" style="gap:18px;margin-top:22px;">
+          <div class="ph-img" style="height:200px">Caso 01</div>
+          <div class="ph-img" style="height:200px">Caso 02</div>
+        </div>
+        <div class="note">Coletar com autorização de imagem. Respeitar regras do conselho para divulgação.</div>
+      </div>
+      <div style="border-left:1px solid var(--line);padding-left:48px;">
+        <span class="eyebrow">Depoimento</span>
+        <p class="quote">"O ambiente é de outro nível. Cada detalhe pensado. Saí me sentindo cuidada do início ao fim."</p>
+        <p style="margin-top:20px;font-size:14px;color:var(--gray);">— Nome da paciente · cliente desde 2023</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. EQUIPE -->
+  <section class="sec bg-mist">
+    <span class="sec-label">07 — Equipe</span>
+    <h2 class="h2 disp">Especialistas</h2>
+    <div class="grid-4" style="margin-top:36px;">
+      <div class="card"><div class="ph-img" style="height:240px">Retrato P&amp;B</div><h4>Dra. Laisy Velar</h4><p>Harmonização</p></div>
+      <div class="card"><div class="ph-img" style="height:240px">Retrato P&amp;B</div><h4>Dr. Weverthon Velar</h4><p>Estética</p></div>
+      <div class="card"><div class="ph-img" style="height:240px">Retrato P&amp;B</div><h4>Dr. Felipe Neri</h4><p>Nutrição</p></div>
+      <div class="card"><div class="ph-img" style="height:240px">Retrato P&amp;B</div><h4>Adriana Nunes</h4><p>Tricologia</p></div>
+    </div>
+  </section>
+
+  <!-- 8. FAQ -->
+  <section class="sec bg-ice">
+    <span class="sec-label">08 — FAQ</span>
+    <h2 class="h2 disp">Dúvidas frequentes</h2>
+    <div style="margin-top:30px;max-width:820px;">
+      <div class="faqline">Os procedimentos doem?<span>+</span></div>
+      <div class="faqline">Quanto tempo dura o resultado?<span>+</span></div>
+      <div class="faqline">A avaliação tem custo?<span>+</span></div>
+      <div class="faqline">Vocês atendem público masculino?<span>+</span></div>
+    </div>
+  </section>
+
+  <!-- 9. CTA FINAL -->
+  <section class="sec bg-black" style="text-align:center;padding-top:110px;padding-bottom:110px;">
+    <span class="sec-label" style="color:#6a6d71">09 — CTA final</span>
+    <span class="eyebrow" style="color:#9a9da0">Agenda limitada</span>
+    <h2 class="h2 disp" style="max-width:680px;margin:0 auto 20px;">Sua próxima versão começa com uma avaliação.</h2>
+    <p class="sub" style="margin:0 auto 30px;color:#b9bcc0;">Atendimento exclusivo, no coração de Caruaru.</p>
+    <span class="cta">Agendar no WhatsApp</span>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="sec bg-black" style="border-top:1px solid #26282B;padding-top:56px;padding-bottom:56px;">
+    <span class="sec-label" style="color:#6a6d71">Rodapé</span>
+    <div class="grid-4" style="align-items:start;gap:28px;">
+      <div class="footcol"><div class="logo" style="color:#fff;font-size:22px;letter-spacing:.34em;">VELAR</div><p style="margin-top:10px;">Complexo estético · Grupo Velar</p></div>
+      <div class="footcol"><h5>Contato</h5><p>+55 81 98160-4549<br>clinicavelar@gmail.com</p></div>
+      <div class="footcol"><h5>Endereço</h5><p>Av. Agamenon Magalhães, 1363<br>Maurício de Nassau — Caruaru/PE</p></div>
+      <div class="footcol"><h5>Horário</h5><p>Seg–Sex · 09h–19h<br>Sáb · sob agendamento</p></div>
+    </div>
+    <div class="note">Corrigir SEO no build: título, meta-description, OpenGraph, favicon, idioma pt-BR.</div>
+  </section>
+
+  <div class="wa">✆</div>
+
+</div>
+
+<script>
+  function setView(view,e){
+    var f=document.getElementById('frame');
+    f.className='frame-wrapper'+(view==='mobile'?' mobile':'');
+    document.querySelectorAll('.ctrl-btn').forEach(function(b){b.classList.remove('active')});
+    e.target.classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+</script>
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
