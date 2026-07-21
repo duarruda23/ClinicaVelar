@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Tags -->
+  <title>Política de Privacidade — Clínica Velar</title>
+  <meta name="description" content="Conheça a Política de Privacidade da Clínica Velar. Saiba como coletamos, usamos e protegemos seus dados pessoais em conformidade com a LGPD.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="author" content="Clínica Velar">
+
+  <!-- OpenGraph Tags -->
+  <meta property="og:title" content="Política de Privacidade — Clínica Velar">
+  <meta property="og:description" content="Saiba como a Clínica Velar coleta, usa e protege seus dados pessoais.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Google Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Design Tokens -->
+  <link rel="stylesheet" href="tokens.css">
+
+  <style>
+    /* Reset & Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--velar-font-body);
+      background-color: var(--velar-ice);
+      color: var(--velar-ink);
+      line-height: var(--lh-body);
+      font-size: var(--fs-body);
+      font-weight: var(--fw-body);
+      overflow-x: hidden;
+    }
+
+    /* Layout Container */
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--space-3);
+      width: 100%;
+    }
+
+    /* Header Sticky */
+    header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background-color: rgba(245, 246, 247, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--velar-line);
+      z-index: 100;
+      transition: all var(--dur) var(--ease);
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    .logo {
+      font-family: var(--velar-font-display);
+      color: var(--velar-black);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      text-decoration: none;
+      transition: opacity var(--dur) var(--ease);
+    }
+
+    .logo:hover {
+      opacity: 0.7;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: var(--space-4);
+    }
+
+    .nav-link {
+      color: var(--velar-gray);
+      text-decoration: none;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+      transition: color var(--dur) var(--ease);
+      position: relative;
+      padding: var(--space-1) 0;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: var(--velar-black);
+      transition: width var(--dur) var(--ease);
+    }
+
+    .nav-link:hover {
+      color: var(--velar-black);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .header-cta {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--velar-black);
+      text-decoration: none;
+      border-bottom: 1px solid var(--velar-black);
+      padding-bottom: 2px;
+      font-weight: 600;
+      transition: opacity var(--dur) var(--ease);
+    }
+
+    .header-cta:hover {
+      opacity: 0.7;
+    }
+
+    /* Burger Button */
+    .burger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      position: relative;
+      z-index: 101;
+    }
+
+    .burger-line {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background-color: var(--velar-black);
+      margin-bottom: 6px;
+      transition: all var(--dur) var(--ease);
+    }
+
+    .burger-line:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Mobile Overlay Menu */
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100vh;
+      background-color: var(--velar-white);
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-4);
+      transition: right var(--dur) var(--ease);
+      list-style: none;
+    }
+
+    .mobile-nav.active {
+      right: 0;
+    }
+
+    .mobile-nav .nav-link {
+      font-size: 20px;
+      color: var(--velar-ink);
+    }
+
+    /* Page Hero */
+    .page-hero {
+      background-color: var(--velar-white);
+      padding: var(--space-7) 0 var(--space-6);
+      border-bottom: 1px solid var(--velar-line);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: var(--fs-label);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-label);
+      color: var(--velar-gray);
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+    }
+
+    .page-title {
+      font-family: var(--velar-font-display);
+      font-size: var(--fs-h1);
+      font-weight: 300;
+      line-height: var(--lh-h1);
+      letter-spacing: -0.02em;
+      color: var(--velar-black);
+      margin-bottom: var(--space-3);
+    }
+
+    .page-meta {
+      font-size: 13px;
+      color: var(--velar-gray);
+      letter-spacing: 0.02em;
+    }
+
+    /* Policy Content */
+    .policy-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: var(--space-7);
+      padding: var(--space-7) 0;
+      align-items: start;
+    }
+
+    /* Sidebar Index */
+    .policy-index {
+      position: sticky;
+      top: 100px;
+    }
+
+    .policy-index-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--velar-gray);
+      font-weight: 600;
+      margin-bottom: var(--space-3);
+    }
+
+    .policy-index-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .policy-index-list a {
+      display: block;
+      font-size: 13px;
+      color: var(--velar-gray);
+      text-decoration: none;
+      padding: 6px 0;
+      border-left: 2px solid var(--velar-line);
+      padding-left: 12px;
+      transition: all var(--dur) var(--ease);
+      line-height: 1.4;
+    }
+
+    .policy-index-list a:hover {
+      color: var(--velar-black);
+      border-left-color: var(--velar-black);
+    }
+
+    /* Policy Sections */
+    .policy-content {
+      min-width: 0;
+    }
+
+    .policy-section {
+      padding-bottom: var(--space-6);
+      border-bottom: 1px solid var(--velar-line);
+      margin-bottom: var(--space-6);
+    }
+
+    .policy-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .policy-section-number {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--velar-gray);
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+    }
+
+    .policy-section h2 {
+      font-family: var(--velar-font-display);
+      font-size: 26px;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      color: var(--velar-ink);
+      margin-bottom: var(--space-3);
+      line-height: 1.2;
+    }
+
+    .policy-section p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #4a4d52;
+      margin-bottom: var(--space-3);
+    }
+
+    .policy-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .policy-section ul,
+    .policy-section ol {
+      padding-left: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+
+    .policy-section ul li,
+    .policy-section ol li {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #4a4d52;
+      margin-bottom: 6px;
+    }
+
+    .policy-section ul li:last-child,
+    .policy-section ol li:last-child {
+      margin-bottom: 0;
+    }
+
+    .policy-section strong {
+      color: var(--velar-ink);
+      font-weight: 600;
+    }
+
+    .policy-highlight {
+      background-color: var(--velar-mist);
+      border-left: 3px solid var(--velar-ink);
+      padding: var(--space-3) var(--space-4);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: var(--space-3) 0;
+    }
+
+    .policy-highlight p {
+      margin-bottom: 0 !important;
+      font-size: 15px;
+    }
+
+    .policy-contact-card {
+      background-color: var(--velar-black);
+      color: var(--velar-white);
+      padding: var(--space-5);
+      border-radius: var(--radius);
+      margin-top: var(--space-4);
+    }
+
+    .policy-contact-card h3 {
+      font-family: var(--velar-font-display);
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      margin-bottom: var(--space-2);
+    }
+
+    .policy-contact-card p {
+      font-size: 14px;
+      color: #c4c7ca;
+      line-height: 1.7;
+      margin-bottom: var(--space-2);
+    }
+
+    .policy-contact-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .policy-contact-card a {
+      color: var(--velar-white);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--velar-black);
+      color: #9a9da0;
+      border-top: 1px solid #26282b;
+      padding: 60px 0 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 1fr 1fr;
+      gap: var(--space-5);
+      margin-bottom: var(--space-5);
+    }
+
+    .footer-col h5 {
+      color: var(--velar-white);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: var(--space-2);
+      font-weight: 600;
+    }
+
+    .footer-col p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: #c4c7ca;
+    }
+
+    .footer-logo {
+      color: var(--velar-white);
+      font-size: 24px;
+      letter-spacing: 0.35em;
+      text-decoration: none;
+      display: block;
+      margin-bottom: var(--space-1);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #1c1d1f;
+      padding-top: var(--space-3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: #6a6d71;
+    }
+
+    /* Floating WhatsApp Button */
+    .wa-float {
+      position: fixed;
+      right: 30px;
+      bottom: 30px;
+      width: 56px;
+      height: 56px;
+      background-color: var(--velar-black);
+      color: var(--velar-white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      z-index: 90;
+      transition: all var(--dur) var(--ease);
+      border: 1px solid #26282b;
+    }
+
+    .wa-float:hover {
+      transform: translateY(-5px);
+      background-color: #26282b;
+    }
+
+    .wa-float svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .policy-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-5);
+      }
+
+      .policy-index {
+        position: static;
+        background-color: var(--velar-white);
+        border: 1px solid var(--velar-line);
+        padding: var(--space-4);
+        border-radius: var(--radius);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu, .header-cta {
+        display: none;
+      }
+
+      .burger {
+        display: block;
+      }
+
+      .header-container {
+        height: 70px;
+      }
+
+      .page-title {
+        font-size: 34px;
+      }
+
+      .policy-layout {
+        padding: var(--space-5) 0;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-2);
+        text-align: center;
+      }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18052134819"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18052134819');
+  </script>
+
+  <!-- Conversão: clique em qualquer link do WhatsApp -->
+  <script>
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('a[href*="wa.me"]');
+      if (link) {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18052134819/zp0jCLnZmtQcEKPv9p9D'
+        });
+      }
+    });
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-container">
+      <a href="index.html" class="logo">VELAR</a>
+
+      <ul class="nav-menu">
+        <li><a href="index.html#sobre" class="nav-link">Sobre</a></li>
+        <li><a href="index.html#objetivos" class="nav-link">Objetivos</a></li>
+        <li><a href="index.html#experiencia" class="nav-link">Estrutura</a></li>
+        <li><a href="index.html#tratamentos" class="nav-link">Tratamentos</a></li>
+        <li><a href="index.html#faq" class="nav-link">Dúvidas</a></li>
+      </ul>
+
+      <a href="https://wa.me/5581981604549?text=Ol%C3%A1!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20geral" target="_blank" class="header-cta">Agendar</a>
+
+      <button class="burger" aria-label="Menu" id="burger-btn">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV OVERLAY -->
+  <ul class="mobile-nav" id="mobile-nav-menu">
+    <li><a href="index.html#sobre" class="nav-link">Sobre</a></li>
+    <li><a href="index.html#objetivos" class="nav-link">Objetivos</a></li>
+    <li><a href="index.html#experiencia" class="nav-link">Estrutura</a></li>
+    <li><a href="index.html#tratamentos" class="nav-link">Tratamentos</a></li>
+    <li><a href="index.html#faq" class="nav-link">Dúvidas</a></li>
+    <li><a href="https://wa.me/5581981604549?text=Ol%C3%A1!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20geral" target="_blank" class="velar-cta" style="margin-top: 20px;">Agendar Avaliação</a></li>
+  </ul>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Transparência & Conformidade</span>
+      <h1 class="page-title">Política de<br>Privacidade</h1>
+      <p class="page-meta">Última atualização: julho de 2025 &nbsp;·&nbsp; Clínica Velar CNPJ 00.000.000/0001-00</p>
+    </div>
+  </section>
+
+  <!-- POLICY CONTENT -->
+  <main>
+    <div class="container policy-layout">
+
+      <!-- Sidebar Index -->
+      <aside class="policy-index" aria-label="Índice da política">
+        <p class="policy-index-title">Neste documento</p>
+        <ul class="policy-index-list">
+          <li><a href="#quem-somos">1. Quem somos</a></li>
+          <li><a href="#dados-coletados">2. Dados que coletamos</a></li>
+          <li><a href="#finalidade">3. Finalidade do uso</a></li>
+          <li><a href="#base-legal">4. Base legal (LGPD)</a></li>
+          <li><a href="#compartilhamento">5. Compartilhamento</a></li>
+          <li><a href="#retencao">6. Retenção dos dados</a></li>
+          <li><a href="#seguranca">7. Segurança</a></li>
+          <li><a href="#seus-direitos">8. Seus direitos</a></li>
+          <li><a href="#cookies">9. Cookies e rastreamento</a></li>
+          <li><a href="#menores">10. Menores de idade</a></li>
+          <li><a href="#alteracoes">11. Alterações desta política</a></li>
+          <li><a href="#contato">12. Contato e DPO</a></li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <article class="policy-content">
+
+        <div class="policy-section" id="quem-somos">
+          <p class="policy-section-number">01</p>
+          <h2>Quem somos</h2>
+          <p>
+            A <strong>Clínica Velar</strong> é um complexo estético multidisciplinar de alto padrão, localizado na Av. Agamenon Magalhães, 1363, Maurício de Nassau, Caruaru/PE. Atuamos nas áreas de harmonização facial e masculina, estética corporal, skincare, tratamento de melasma, nutrição e tricologia.
+          </p>
+          <p>
+            Este documento descreve como coletamos, utilizamos, armazenamos e protegemos os seus dados pessoais, em conformidade com a <strong>Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018)</strong> e demais legislações aplicáveis.
+          </p>
+        </div>
+
+        <div class="policy-section" id="dados-coletados">
+          <p class="policy-section-number">02</p>
+          <h2>Dados que coletamos</h2>
+          <p>Coletamos dados pessoais nas seguintes situações:</p>
+          <ul>
+            <li><strong>Contato e agendamento:</strong> nome completo, número de telefone (WhatsApp), e-mail e objetivo estético informado ao iniciar conversa.</li>
+            <li><strong>Atendimento clínico:</strong> dados de saúde, histórico de tratamentos, fotografias clínicas (antes/depois) e informações fornecidas durante a anamnese.</li>
+            <li><strong>Navegação no site:</strong> endereço IP, tipo de navegador, páginas visitadas, tempo de permanência e cliques em links (coletados via Google Analytics e Google Ads).</li>
+            <li><strong>Comunicação via WhatsApp:</strong> histórico de mensagens relacionadas ao atendimento e agendamentos.</li>
+          </ul>
+          <div class="policy-highlight">
+            <p>Dados de saúde são considerados <strong>dados sensíveis</strong> pela LGPD e recebem nível de proteção reforçado, sendo utilizados exclusivamente para a prestação dos serviços contratados.</p>
+          </div>
+        </div>
+
+        <div class="policy-section" id="finalidade">
+          <p class="policy-section-number">03</p>
+          <h2>Finalidade do uso</h2>
+          <p>Utilizamos seus dados pessoais para:</p>
+          <ul>
+            <li>Agendamento, confirmação e gerenciamento de consultas e procedimentos;</li>
+            <li>Elaboração e acompanhamento de protocolos de tratamento individualizados;</li>
+            <li>Comunicação sobre resultados, orientações pós-procedimento e retornos;</li>
+            <li>Envio de informações sobre serviços, promoções e novidades da Clínica (mediante consentimento);</li>
+            <li>Cumprimento de obrigações legais e regulatórias do setor de saúde;</li>
+            <li>Análise e melhoria contínua dos nossos serviços;</li>
+            <li>Exibição de anúncios relevantes por meio do Google Ads.</li>
+          </ul>
+        </div>
+
+        <div class="policy-section" id="base-legal">
+          <p class="policy-section-number">04</p>
+          <h2>Base legal (LGPD)</h2>
+          <p>Tratamos seus dados com amparo nas seguintes bases legais previstas no Art. 7º e Art. 11 da LGPD:</p>
+          <ul>
+            <li><strong>Consentimento</strong> — para envio de comunicações de marketing e uso de fotografias em materiais institucionais;</li>
+            <li><strong>Execução de contrato</strong> — para realização dos procedimentos e serviços contratados;</li>
+            <li><strong>Legítimo interesse</strong> — para comunicações operacionais, confirmação de agendamentos e análise de qualidade;</li>
+            <li><strong>Obrigação legal</strong> — para cumprimento de normas do Conselho Federal de Medicina Estética e demais regulações do setor de saúde;</li>
+            <li><strong>Tutela da saúde</strong> — para tratamento de dados sensíveis necessários à prestação de cuidados de saúde.</li>
+          </ul>
+        </div>
+
+        <div class="policy-section" id="compartilhamento">
+          <p class="policy-section-number">05</p>
+          <h2>Compartilhamento de dados</h2>
+          <p>
+            A Clínica Velar <strong>não vende nem comercializa</strong> seus dados pessoais. Podemos compartilhá-los apenas nas seguintes situações:
+          </p>
+          <ul>
+            <li><strong>Fornecedores de tecnologia:</strong> Google (Analytics, Ads, Workspace) para fins de análise e comunicação, mediante acordos de processamento de dados;</li>
+            <li><strong>Profissionais de saúde parceiros:</strong> quando necessário para a continuidade do seu tratamento, com seu conhecimento;</li>
+            <li><strong>Obrigação legal:</strong> quando exigido por autoridades competentes, decisão judicial ou regulação sanitária aplicável;</li>
+            <li><strong>Proteção de direitos:</strong> em caso de necessidade para defesa dos direitos da Clínica em processos administrativos ou judiciais.</li>
+          </ul>
+        </div>
+
+        <div class="policy-section" id="retencao">
+          <p class="policy-section-number">06</p>
+          <h2>Retenção dos dados</h2>
+          <p>
+            Os dados pessoais são mantidos pelo tempo necessário para cumprir a finalidade para a qual foram coletados ou para cumprimento de obrigação legal:
+          </p>
+          <ul>
+            <li><strong>Prontuários clínicos:</strong> mínimo de 20 anos, conforme Resolução CFM nº 1.638/2002;</li>
+            <li><strong>Dados de agendamento e contato:</strong> até 5 anos após o último atendimento;</li>
+            <li><strong>Dados de navegação:</strong> conforme a política de retenção do Google Analytics (padrão: 14 meses);</li>
+            <li><strong>Comunicações de marketing:</strong> até a revogação do consentimento ou solicitação de exclusão.</li>
+          </ul>
+          <p>Após o prazo de retenção aplicável, os dados são excluídos ou anonimizados de forma segura.</p>
+        </div>
+
+        <div class="policy-section" id="seguranca">
+          <p class="policy-section-number">07</p>
+          <h2>Segurança</h2>
+          <p>
+            Adotamos medidas técnicas e organizacionais adequadas para proteger seus dados contra acesso não autorizado, perda, alteração ou divulgação indevida, incluindo:
+          </p>
+          <ul>
+            <li>Controle de acesso restrito a profissionais autorizados;</li>
+            <li>Armazenamento em sistemas com criptografia;</li>
+            <li>Uso de plataformas certificadas e com políticas de segurança robustas;</li>
+            <li>Treinamento periódico da equipe sobre boas práticas de privacidade.</li>
+          </ul>
+          <p>
+            Em caso de incidente de segurança que possa afetar seus direitos, notificaremos a Autoridade Nacional de Proteção de Dados (ANPD) e, quando aplicável, os titulares afetados, dentro dos prazos legais.
+          </p>
+        </div>
+
+        <div class="policy-section" id="seus-direitos">
+          <p class="policy-section-number">08</p>
+          <h2>Seus direitos</h2>
+          <p>Como titular de dados, você possui os seguintes direitos garantidos pela LGPD (Art. 18):</p>
+          <ul>
+            <li><strong>Confirmação e acesso:</strong> saber se tratamos seus dados e obter cópia deles;</li>
+            <li><strong>Correção:</strong> solicitar a correção de dados incompletos, inexatos ou desatualizados;</li>
+            <li><strong>Anonimização, bloqueio ou eliminação:</strong> de dados desnecessários, excessivos ou tratados em desconformidade;</li>
+            <li><strong>Portabilidade:</strong> receber seus dados em formato estruturado para transferência a outro fornecedor;</li>
+            <li><strong>Eliminação:</strong> solicitar a exclusão de dados tratados com base no consentimento;</li>
+            <li><strong>Revogação do consentimento:</strong> retirar a qualquer momento o consentimento dado para determinado tratamento;</li>
+            <li><strong>Oposição:</strong> se opor ao tratamento realizado com fundamento em outras bases legais, em caso de descumprimento da LGPD;</li>
+            <li><strong>Informação:</strong> ser informado sobre com quem compartilhamos seus dados.</li>
+          </ul>
+          <p>Para exercer qualquer direito, entre em contato pelo e-mail <a href="mailto:clinicavelar@gmail.com" style="color: var(--velar-ink); font-weight: 500;">clinicavelar@gmail.com</a>. Responderemos em até 15 dias corridos.</p>
+        </div>
+
+        <div class="policy-section" id="cookies">
+          <p class="policy-section-number">09</p>
+          <h2>Cookies e rastreamento</h2>
+          <p>Nosso site utiliza cookies e tecnologias similares para:</p>
+          <ul>
+            <li><strong>Cookies analíticos:</strong> Google Analytics, para mensurar audiência, páginas mais acessadas e comportamento de navegação de forma agregada;</li>
+            <li><strong>Cookies de publicidade:</strong> Google Ads (gtag.js), para mensurar conversões de anúncios e exibir publicidade relevante;</li>
+            <li><strong>Cookies de funcionalidade:</strong> para lembrar preferências de navegação.</li>
+          </ul>
+          <p>
+            Você pode gerenciar ou desativar cookies nas configurações do seu navegador. A desativação de cookies analíticos não impede o uso do site, mas pode reduzir a personalização da experiência.
+          </p>
+          <div class="policy-highlight">
+            <p>Para saber mais sobre como o Google utiliza dados de anúncios, acesse <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style="color: var(--velar-ink); font-weight: 500;">policies.google.com/privacy</a>.</p>
+          </div>
+        </div>
+
+        <div class="policy-section" id="menores">
+          <p class="policy-section-number">10</p>
+          <h2>Menores de idade</h2>
+          <p>
+            Nossos serviços são direcionados a adultos com 18 anos ou mais. Para atendimento de menores de 18 anos, exigimos a presença e o consentimento expresso dos pais ou responsáveis legais, que assumem a responsabilidade sobre os dados fornecidos.
+          </p>
+          <p>
+            Não coletamos intencionalmente dados de crianças (menores de 12 anos) por meio de formulários ou canais digitais.
+          </p>
+        </div>
+
+        <div class="policy-section" id="alteracoes">
+          <p class="policy-section-number">11</p>
+          <h2>Alterações desta política</h2>
+          <p>
+            Esta Política de Privacidade pode ser atualizada periodicamente para refletir mudanças em nossas práticas, nos serviços oferecidos ou na legislação aplicável.
+          </p>
+          <p>
+            Alterações relevantes serão comunicadas por meio do nosso site ou diretamente via WhatsApp/e-mail para os pacientes cadastrados. A data da última atualização estará sempre indicada no topo deste documento. O uso continuado dos nossos serviços após qualquer alteração implica aceitação da versão vigente.
+          </p>
+        </div>
+
+        <div class="policy-section" id="contato">
+          <p class="policy-section-number">12</p>
+          <h2>Contato e DPO</h2>
+          <p>
+            Para dúvidas, solicitações relacionadas aos seus dados ou para exercer seus direitos, entre em contato com o nosso Encarregado de Proteção de Dados (DPO):
+          </p>
+          <div class="policy-contact-card">
+            <h3>Clínica Velar — Encarregado de Dados</h3>
+            <p>
+              E-mail: <a href="mailto:clinicavelar@gmail.com">clinicavelar@gmail.com</a><br>
+              Telefone / WhatsApp: <a href="https://wa.me/5581981604549" target="_blank">+55 81 98160-4549</a><br>
+              Endereço: Av. Agamenon Magalhães, 1363 — Maurício de Nassau, Caruaru/PE
+            </p>
+            <p>
+              Horário de atendimento: segunda a sexta, das 9h às 18h.<br>
+              Prazo de resposta: até 15 dias corridos.
+            </p>
+          </div>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="footer-logo">VELAR</a>
+          <p>Complexo estético multidisciplinar. Referência em cuidado e alta performance.</p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Menu</h5>
+          <p style="display:flex; flex-direction:column; gap:6px;">
+            <a href="index.html#sobre" style="color:#c4c7ca; text-decoration:none;">Sobre</a>
+            <a href="index.html#objetivos" style="color:#c4c7ca; text-decoration:none;">Objetivos</a>
+            <a href="index.html#experiencia" style="color:#c4c7ca; text-decoration:none;">Estrutura</a>
+            <a href="index.html#tratamentos" style="color:#c4c7ca; text-decoration:none;">Tratamentos</a>
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Contato</h5>
+          <p>
+            +55 81 98160-4549<br>
+            clinicavelar@gmail.com
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Endereço</h5>
+          <p>
+            Av. Agamenon Magalhães, 1363<br>
+            Maurício de Nassau — Caruaru/PE
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Clínica Velar. Todos os direitos reservados.</div>
+        <div>
+          <a href="politica-de-privacidade.html" style="color:#6a6d71; text-decoration:none;">Política de Privacidade</a>
+          &nbsp;·&nbsp; Desenvolvido por Virgo Marketing
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/5581981604549?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20avalia%C3%A7%C3%B5es%20da%20Cl%C3%ADnica%20Velar" target="_blank" class="wa-float" aria-label="Fale conosco pelo WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.424 2.5 1.134 3.471L6.2 18.54l3.237-1.01c.908.57 1.979.907 3.125.908 3.182 0 5.767-2.586 5.768-5.766.002-3.187-2.575-5.77-5.77-5.77-1.12 0-2.185.318-3.096.87zm4.28 7.94c-.175.49-.9.89-1.24.93-.34.04-.68.17-2.2-.43-1.82-.72-2.98-2.56-3.07-2.68-.09-.12-.73-.97-.73-1.85 0-.88.46-1.31.62-1.48.16-.17.35-.21.47-.21.12 0 .23.01.33.01.11 0 .26-.04.41.32.16.38.53 1.3.58 1.4.05.1.09.22.01.38-.08.16-.16.26-.26.38-.1.12-.21.27-.3.38-.1.11-.21.23-.09.43.12.2.53.88 1.14 1.42.78.69 1.44.91 1.64 1.01.2.1.32.08.43-.05.11-.13.48-.56.61-.75.13-.19.26-.16.44-.1.18.06 1.14.54 1.34.64.2.1.33.15.38.23.05.09.05.51-.12.99z"/>
+    </svg>
+  </a>
+
+  <!-- INTERACTION SCRIPT -->
+  <script>
+    const burgerBtn = document.getElementById('burger-btn');
+    const mobileNav = document.getElementById('mobile-nav-menu');
+
+    burgerBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('active');
+    });
+
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
