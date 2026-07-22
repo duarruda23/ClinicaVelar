@@ -1208,6 +1208,19 @@
         lines[2].style.transform = 'none';
       });
     });
+
+    // Conversão: clique no botão flutuante do WhatsApp
+    const waBtn = document.getElementById('floating-wa-btn');
+    if (waBtn) {
+      waBtn.addEventListener('click', function () {
+        if (typeof fbq !== 'undefined') {
+          fbq('track', 'Contact', { content_name: 'floating-wa-btn' });
+        }
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'conversion', { 'send_to': 'AW-18052134819/zp0jCLnZmtQcEKPv9p9D' });
+        }
+      });
+    }
   </script>
 </body>
 </html>
