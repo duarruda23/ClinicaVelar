@@ -1284,30 +1284,49 @@
     </div>
   </section>
 
-  <!-- 6. RESULTADOS & DEPOIMENTO -->
-  <section class="section section-white">
-    <div class="container results-grid">
-      <div>
-        <span class="eyebrow">Resultados reais</span>
-        <h2 class="h2">Naturalidade evidente</h2>
-        <p class="sub">Protocolos que preservam as características únicas de cada paciente, realçando os pontos fortes de forma sutil e harmoniosa.</p>
-        
-        <div class="results-comparison">
-          <div class="comparison-box">
-            <img src="Assets/Espaco/lounge.jpg" alt="Antes" class="comparison-img" loading="lazy">
-            <span class="comparison-label">Caso 01</span>
-          </div>
-          <div class="comparison-box">
-            <img src="Assets/Espaco/recepcao.jpg" alt="Depois" class="comparison-img" loading="lazy">
-            <span class="comparison-label">Caso 02</span>
-          </div>
-        </div>
+  <!-- 6. RESULTADOS REAIS & CASOS CLÍNICOS (CARROSSEL DE BARALHO) -->
+  <section class="section section-white" id="resultados">
+    <div class="container deck-section-container">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <span class="eyebrow">Prova Social & Resultados Reais</span>
+        <h2 class="h2">Transformações Autênticas</h2>
+        <p class="sub">Arraste os cards para o lado ou use as setas para explorar o Carrossel de Resultados Reais dos nossos pacientes.</p>
       </div>
       
-      <div class="testimonial-box">
-        <span class="eyebrow">Opinião de quem confia</span>
-        <p class="quote-text">"O ambiente é de outro nível, completamente fora do comum do mercado de estética. Cada detalhe da experiência e do atendimento te faz sentir cuidado e respeitado. Os resultados da harmonização são incrivelmente naturais."</p>
-        <div class="quote-author">— Mariana R. · Paciente desde 2024</div>
+      <!-- Filter Bar -->
+      <div class="result-filter-bar" id="deck-filter-bar">
+        <button class="result-filter-btn active" data-filter="all">Todos os Casos</button>
+        <button class="result-filter-btn" data-filter="ptolomeu">Protocolo Ptolomeu</button>
+        <button class="result-filter-btn" data-filter="labial">Uma Boca é Uma Boca</button>
+        <button class="result-filter-btn" data-filter="facelift">Face Lift</button>
+        <button class="result-filter-btn" data-filter="harmonizacao">Harmonização Facial</button>
+        <button class="result-filter-btn" data-filter="magic4">Protocolo Magic 4</button>
+        <button class="result-filter-btn" data-filter="skinglass">Skin Glass & Revita Glow</button>
+      </div>
+
+      <!-- Deck Carousel Container -->
+      <div class="deck-wrapper" id="deck-wrapper">
+        <!-- Dynamic Cards rendered by JS -->
+      </div>
+
+      <!-- Deck Navigation Controls -->
+      <div class="deck-controls">
+        <button type="button" class="deck-nav-btn" id="deck-prev-btn" aria-label="Anterior">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <div class="deck-dots" id="deck-dots">
+          <!-- Dots rendered by JS -->
+        </div>
+        <button type="button" class="deck-nav-btn" id="deck-next-btn" aria-label="Próximo">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </div>
+
+      <!-- Testimonial Banner -->
+      <div class="testimonial-box" style="margin-top: var(--space-6); width: 100%;">
+        <span class="eyebrow">Depoimento Autêntico</span>
+        <p class="quote-text">"O atendimento da Clínica Velar é totalmente diferenciado. Desde os protocolos exclusivos como o Ptolomeu e o Skin Glass até o carinho e precisão médica. Os resultados são visíveis, elegantes e super naturais."</p>
+        <div class="quote-author">— Paciente Clínica Velar · Caruaru/PE</div>
       </div>
     </div>
   </section>
@@ -1477,7 +1496,7 @@
     </svg>
   </a>
 
-  <!-- INTERACTION SCRIPT -->
+  <!-- INTERACTION & DECK CAROUSEL SCRIPT -->
   <script>
     // FAQ Accordion Logic
     const faqTriggers = document.querySelectorAll('.faq-trigger');
@@ -1487,13 +1506,11 @@
         const parent = trigger.parentElement;
         const isActive = parent.classList.contains('active');
         
-        // Close all faq items
         document.querySelectorAll('.faq-item').forEach(item => {
           item.classList.remove('active');
           item.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
         });
         
-        // Toggle the clicked one
         if (!isActive) {
           parent.classList.add('active');
           trigger.setAttribute('aria-expanded', 'true');
@@ -1505,56 +1522,260 @@
     const burgerBtn = document.getElementById('burger-btn');
     const mobileNavMenu = document.getElementById('mobile-nav-menu');
     
-    burgerBtn.addEventListener('click', () => {
-      mobileNavMenu.classList.toggle('active');
-      const lines = burgerBtn.querySelectorAll('.burger-line');
-      
-      if(mobileNavMenu.classList.contains('active')) {
-        lines[0].style.transform = 'translateY(7px) rotate(45deg)';
-        lines[1].style.opacity = '0';
-        lines[2].style.transform = 'translateY(-7px) rotate(-45deg)';
-      } else {
-        lines[0].style.transform = 'none';
-        lines[1].style.opacity = '1';
-        lines[2].style.transform = 'none';
-      }
-    });
-
-    // Close mobile menu on nav link click
-    const mobileLinks = mobileNavMenu.querySelectorAll('.nav-link');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileNavMenu.classList.remove('active');
+    if (burgerBtn && mobileNavMenu) {
+      burgerBtn.addEventListener('click', () => {
+        mobileNavMenu.classList.toggle('active');
         const lines = burgerBtn.querySelectorAll('.burger-line');
-        lines[0].style.transform = 'none';
-        lines[1].style.opacity = '1';
-        lines[2].style.transform = 'none';
+        
+        if(mobileNavMenu.classList.contains('active')) {
+          lines[0].style.transform = 'translateY(7px) rotate(45deg)';
+          lines[1].style.opacity = '0';
+          lines[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+        } else {
+          lines[0].style.transform = 'none';
+          lines[1].style.opacity = '1';
+          lines[2].style.transform = 'none';
+        }
       });
-    });
 
-    // Simple analytical trigger on WA clicks
-    const waButtons = [
-      'header-cta-btn', 
-      'hero-primary-cta', 
-      'final-cta-btn', 
-      'floating-wa-btn'
-    ];
+      const mobileLinks = mobileNavMenu.querySelectorAll('.nav-link');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileNavMenu.classList.remove('active');
+          const lines = burgerBtn.querySelectorAll('.burger-line');
+          lines[0].style.transform = 'none';
+          lines[1].style.opacity = '1';
+          lines[2].style.transform = 'none';
+        });
+      });
+    }
 
+    // Analytics CTA Click Tracking
+    const waButtons = ['header-cta-btn', 'hero-primary-cta', 'final-cta-btn', 'floating-wa-btn'];
     waButtons.forEach(id => {
       const btn = document.getElementById(id);
       if (btn) {
         btn.addEventListener('click', () => {
-          // Log pixel event simulation
-          console.log(`[Pixel Event] Clicked WhatsApp CTA: ${id}`);
-          if (typeof fbq !== 'undefined') {
-            fbq('track', 'Contact', { content_name: id });
-          }
-          if (typeof gtag !== 'undefined') {
-            gtag('event', 'click_whatsapp', { 'event_category': 'Engagement', 'event_label': id });
-          }
+          if (typeof fbq !== 'undefined') fbq('track', 'Contact', { content_name: id });
+          if (typeof gtag !== 'undefined') gtag('event', 'click_whatsapp', { 'event_category': 'Engagement', 'event_label': id });
         });
       }
     });
+
+    // ============================================================
+    // CARROSSEL DE BARALHO (DECK OF CARDS CAROUSEL)
+    // ============================================================
+    const PROCEDURES_DATA = [
+      // Ptolomeu
+      { id: 'p1', category: 'ptolomeu', catLabel: 'Harmonização Masculina', title: 'Protocolo Ptolomeu', desc: 'Estruturação mandibular e mento masculino de alta precisão.', img: 'Assets/procedimentos/ptolomeu/ptolomeu-01.jpg' },
+      { id: 'p2', category: 'ptolomeu', catLabel: 'Harmonização Masculina', title: 'Ptolomeu — Mento & Ângulos', desc: 'Projeção de queixo e alinhamento do arco mandibular.', img: 'Assets/procedimentos/ptolomeu/ptolomeu-02.jpg' },
+      { id: 'p3', category: 'ptolomeu', catLabel: 'Harmonização Masculina', title: 'Ptolomeu — Terço Médio', desc: 'Sustentação e definição da estrutura malar masculina.', img: 'Assets/procedimentos/ptolomeu/ptolomeu-03.jpg' },
+      { id: 'p4', category: 'ptolomeu', catLabel: 'Harmonização Masculina', title: 'Ptolomeu — Perfil Masculino', desc: 'Harmonização global preservando a virilidade dos traços.', img: 'Assets/procedimentos/ptolomeu/ptolomeu-04.jpg' },
+      { id: 'p5', category: 'ptolomeu', catLabel: 'Harmonização Masculina', title: 'Ptolomeu — Mandíbula', desc: 'Definição do contorno lateral e mandíbula reta.', img: 'Assets/procedimentos/ptolomeu/ptolomeu-05.jpg' },
+      { id: 'p6', category: 'ptolomeu', catLabel: 'Harmonização Masculina', title: 'Ptolomeu — Projeção Mento', desc: 'Harmonização de queixo retruso com simetria médica.', img: 'Assets/procedimentos/ptolomeu/ptolomeu-06.jpg' },
+      
+      // Labial ("Uma Boca é Uma Boca")
+      { id: 'l1', category: 'labial', catLabel: 'Preenchimento Labial', title: '"Uma Boca é Uma Boca"', desc: 'Escultura labial anatômica com contorno e viço natural.', img: 'Assets/procedimentos/labial/labial-01.jpg' },
+      { id: 'l2', category: 'labial', catLabel: 'Preenchimento Labial', title: '"Uma Boca é Uma Boca" — Contorno', desc: 'Definição do arco do cupido e projeção equilibrada.', img: 'Assets/procedimentos/labial/labial-02.jpg' },
+      { id: 'l3', category: 'labial', catLabel: 'Preenchimento Labial', title: '"Uma Boca é Uma Boca" — Volume', desc: 'Volumização sutil com hidratação dermo-funcional.', img: 'Assets/procedimentos/labial/labial-03.jpg' },
+      { id: 'l4', category: 'labial', catLabel: 'Preenchimento Labial', title: '"Uma Boca é Uma Boca" — Simetria', desc: 'Correção de assimetrias com ácido hialurônico premium.', img: 'Assets/procedimentos/labial/labial-04.jpg' },
+
+      // Face Lift
+      { id: 'f1', category: 'facelift', catLabel: 'Sustentação Facial', title: 'Face Lift Sem Cirurgia', desc: 'Vetor de sustentação de tecidos e firmeza para a pele.', img: 'Assets/procedimentos/facelift/facelift-01.jpg' },
+      { id: 'f2', category: 'facelift', catLabel: 'Sustentação Facial', title: 'Face Lift — Rejuvenescimento', desc: 'Tratamento do sulco nasogeniano e linhas de marionete.', img: 'Assets/procedimentos/facelift/facelift-02.jpg' },
+      { id: 'f3', category: 'facelift', catLabel: 'Sustentação Facial', title: 'Face Lift — Ancoragem', desc: 'Restabelecimento do contorno facial inferior.', img: 'Assets/procedimentos/facelift/facelift-03.jpg' },
+
+      // Harmonização
+      { id: 'h1', category: 'harmonizacao', catLabel: 'Harmonização Facial', title: 'Harmonização Equilibrada', desc: 'Restabelecimento do triângulo da juventude e proporções.', img: 'Assets/procedimentos/harmonizacao/harmonizacao-01.jpg' },
+      { id: 'h2', category: 'harmonizacao', catLabel: 'Harmonização Facial', title: 'Refinamento de Traços', desc: 'Suavização de sombras e valorização da beleza natural.', img: 'Assets/procedimentos/harmonizacao/harmonizacao-02.jpg' },
+      { id: 'h3', category: 'harmonizacao', catLabel: 'Harmonização Facial', title: 'Contorno & Preenchimento', desc: 'Proporção áurea facial amparada por dermatologia médica.', img: 'Assets/procedimentos/harmonizacao/harmonizacao-03.jpg' },
+
+      // Magic 4
+      { id: 'm1', category: 'magic4', catLabel: 'Protocolo Multidisciplinar', title: 'Protocolo Magic 4', desc: 'Tratamento em 4 etapas focadas em remodelação e colágeno.', img: 'Assets/procedimentos/magic4/magic4-01.jpg' },
+      { id: 'm2', category: 'magic4', catLabel: 'Protocolo Multidisciplinar', title: 'Magic 4 — Bioestimulação', desc: 'Estímulo intenso de colágeno e firmeza tissular.', img: 'Assets/procedimentos/magic4/magic4-02.jpg' },
+      { id: 'm3', category: 'magic4', catLabel: 'Protocolo Multidisciplinar', title: 'Magic 4 — Contorno', desc: 'Remodelação e alinhamento de contorno de alta precisão.', img: 'Assets/procedimentos/magic4/magic4-03.jpg' },
+
+      // Skin Glass & Revita Glow
+      { id: 's1', category: 'skinglass', catLabel: 'Qualidade de Pele', title: 'Protocolo Skin Glass', desc: 'Efeito poro zero, hidratação profunda e textura de porcelana.', img: 'Assets/procedimentos/skinglass/skinglass-01.jpg' },
+      { id: 's2', category: 'skinglass', catLabel: 'Skincare Avançado', title: 'Revita Glow', desc: 'Revitalização imediata, luminosidade e viço radiante.', img: 'Assets/procedimentos/revitaglow/revitaglow-01.jpg' },
+      { id: 's3', category: 'skinglass', catLabel: 'Qualidade de Pele', title: 'Skin Glass — Poro Zero', desc: 'Refinamento de textura e uniformidade de tom.', img: 'Assets/procedimentos/skinglass/skinglass-02.jpg' },
+      { id: 's4', category: 'skinglass', catLabel: 'Skincare Avançado', title: 'Revita Glow — Nutrição', desc: 'Hidratação dermo-funcional e viço imediato.', img: 'Assets/procedimentos/revitaglow/revitaglow-02.jpg' }
+    ];
+
+    let activeFilter = 'all';
+    let filteredItems = [];
+    let cardOrder = [];
+    let isDragging = false;
+    let startX = 0;
+    let dragX = 0;
+    let isAnimating = false;
+
+    const deckWrapper = document.getElementById('deck-wrapper');
+    const deckDots = document.getElementById('deck-dots');
+    const prevBtn = document.getElementById('deck-prev-btn');
+    const nextBtn = document.getElementById('deck-next-btn');
+    const filterButtons = document.querySelectorAll('#deck-filter-bar .result-filter-btn');
+
+    function initDeck(filter = 'all') {
+      activeFilter = filter;
+      filteredItems = activeFilter === 'all' 
+        ? [...PROCEDURES_DATA] 
+        : PROCEDURES_DATA.filter(item => item.category === activeFilter);
+        
+      cardOrder = filteredItems.map((_, i) => i);
+      renderDeck();
+      renderDots();
+    }
+
+    function renderDeck() {
+      if (!deckWrapper) return;
+      deckWrapper.innerHTML = '';
+      
+      if (filteredItems.length === 0) return;
+
+      const total = filteredItems.length;
+
+      filteredItems.forEach((item, originalIndex) => {
+        const pos = cardOrder.indexOf(originalIndex);
+        const isTop = (pos === 0);
+        
+        // Render top 5 cards for clean deck effect
+        if (pos > 4) return;
+
+        let tx = pos * 18;
+        let rot = pos * 6;
+        const scale = 1 - pos * 0.05;
+        const opacity = Math.max(1 - pos * 0.16, 0.2);
+        const zIndex = total - pos;
+
+        if (isTop && (isDragging || dragX !== 0)) {
+          tx += dragX;
+          rot += dragX / 20;
+        }
+
+        const cardEl = document.createElement('div');
+        cardEl.className = `deck-card-item ${isTop ? 'is-top' : ''} ${isDragging ? 'is-dragging' : ''}`;
+        cardEl.style.zIndex = zIndex;
+        cardEl.style.opacity = opacity;
+        cardEl.style.transform = `translateX(${tx}px) rotate(${rot}deg) scale(${scale})`;
+        
+        if (isTop && isDragging) {
+          cardEl.style.transition = 'none';
+        }
+
+        cardEl.innerHTML = `
+          <img src="${item.img}" alt="${item.title}" class="deck-card-img">
+          <div class="deck-card-overlay"></div>
+          <div class="deck-card-content">
+            <span class="deck-card-badge">Resultado Real</span>
+            <div class="deck-card-cat">${item.catLabel}</div>
+            <h3 class="deck-card-title">${item.title}</h3>
+            <p class="deck-card-desc">${item.desc}</p>
+          </div>
+        `;
+
+        if (isTop) {
+          cardEl.addEventListener('pointerdown', handlePointerDown);
+          cardEl.addEventListener('pointermove', handlePointerMove);
+          cardEl.addEventListener('pointerup', handlePointerUp);
+          cardEl.addEventListener('pointercancel', handlePointerUp);
+        }
+
+        deckWrapper.appendChild(cardEl);
+      });
+    }
+
+    function renderDots() {
+      if (!deckDots) return;
+      deckDots.innerHTML = '';
+      const total = filteredItems.length;
+      const activeIdx = cardOrder[0] || 0;
+
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement('span');
+        dot.className = `deck-dot ${i === activeIdx ? 'active' : ''}`;
+        dot.addEventListener('click', () => {
+          if (isAnimating) return;
+          const idxInOrder = cardOrder.indexOf(i);
+          if (idxInOrder > 0) {
+            cardOrder = [...cardOrder.slice(idxInOrder), ...cardOrder.slice(0, idxInOrder)];
+            renderDeck();
+            renderDots();
+          }
+        });
+        deckDots.appendChild(dot);
+      }
+    }
+
+    function advanceCard(dir = 1) {
+      if (isAnimating || cardOrder.length <= 1) return;
+      isAnimating = true;
+
+      if (dir === 1) {
+        cardOrder.push(cardOrder.shift());
+      } else {
+        cardOrder.unshift(cardOrder.pop());
+      }
+
+      dragX = 0;
+      isDragging = false;
+      renderDeck();
+      renderDots();
+
+      setTimeout(() => {
+        isAnimating = false;
+      }, 350);
+    }
+
+    function handlePointerDown(e) {
+      if (isAnimating) return;
+      isDragging = true;
+      startX = e.clientX;
+      dragX = 0;
+      if (e.currentTarget.setPointerCapture) {
+        e.currentTarget.setPointerCapture(e.pointerId);
+      }
+    }
+
+    function handlePointerMove(e) {
+      if (!isDragging) return;
+      dragX = e.clientX - startX;
+      renderDeck();
+    }
+
+    function handlePointerUp(e) {
+      if (!isDragging) return;
+      isDragging = false;
+      const threshold = 80;
+
+      if (Math.abs(dragX) > threshold) {
+        const dir = dragX > 0 ? -1 : 1;
+        advanceCard(dir);
+      } else {
+        dragX = 0;
+        renderDeck();
+      }
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => advanceCard(-1));
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => advanceCard(1));
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+        initDeck(filter);
+      });
+    });
+
+    // Initialize Deck
+    initDeck('all');
   </script>
 </body>
 </html>
