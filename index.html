@@ -1556,8 +1556,12 @@
       const btn = document.getElementById(id);
       if (btn) {
         btn.addEventListener('click', () => {
-          if (typeof fbq !== 'undefined') fbq('track', 'Contact', { content_name: id });
-          if (typeof gtag !== 'undefined') gtag('event', 'click_whatsapp', { 'event_category': 'Engagement', 'event_label': id });
+          if (typeof fbq !== 'undefined') {
+            fbq('track', 'Contact', { content_name: id });
+          }
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'click_whatsapp', { 'event_category': 'Engagement', 'event_label': id });
+          }
         });
       }
     });
