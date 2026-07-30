@@ -212,22 +212,25 @@
   justify-content: center;
   text-align: center;
   width: 100%;
+  overflow: hidden;
 }
 
 .deck-wrapper {
   position: relative;
   width: 400px;
-  max-width: 90vw;
+  max-width: calc(100vw - 48px);
   height: 400px;
   aspect-ratio: 1 / 1;
   margin: var(--space-4) auto var(--space-3) auto;
   user-select: none;
+  overflow: hidden;
 }
 
 @media (max-width: 480px) {
   .deck-wrapper {
-    width: 310px;
-    height: 310px;
+    width: 300px;
+    height: 300px;
+    max-width: calc(100vw - 32px);
   }
 }
 

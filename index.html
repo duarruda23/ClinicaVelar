@@ -20,6 +20,7 @@
   <!-- End Meta Pixel Code -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="favicon.png">
   
   <!-- SEO Tags -->
   <title>Clínica Velar — Estética Premium em Caruaru/PE</title>
@@ -54,6 +55,7 @@
       scroll-behavior: smooth;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
     
     body {
@@ -168,6 +170,7 @@
       cursor: pointer;
       transition: all var(--dur) var(--ease);
       min-width: 180px;
+      max-width: 100%;
     }
     
     .btn-primary {
@@ -1011,6 +1014,27 @@
       .footer-bottom {
         flex-direction: column;
         gap: var(--space-2);
+        text-align: center;
+      }
+
+      /* Deck carousel mobile */
+      .result-filter-bar {
+        gap: 8px;
+      }
+
+      .result-filter-btn {
+        padding: 8px 14px;
+        font-size: 12px;
+      }
+
+      .btn-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        min-width: unset;
+        width: 100%;
         text-align: center;
       }
     }
