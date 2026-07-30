@@ -1309,7 +1309,7 @@
   </section>
 
   <!-- 6. RESULTADOS REAIS & CASOS CLÍNICOS (CARROSSEL DE BARALHO) -->
-  <section class="section section-white" id="resultados">
+  <section class="section section-white" id="resultados" style="overflow: hidden;">
     <div class="container deck-section-container">
       <div style="text-align: center; max-width: 800px; margin: 0 auto;">
         <span class="eyebrow">Prova Social & Resultados Reais</span>
@@ -1670,22 +1670,25 @@
         // Render top 5 cards for clean deck effect
         if (pos > 4) return;
 
-        let tx = pos * 18;
-        let rot = pos * 6;
-        const scale = 1 - pos * 0.05;
-        const opacity = Math.max(1 - pos * 0.16, 0.2);
+        // Cards de trás: apenas translateY + rotate para efeito de baralho sem overflow lateral
+        let tx = 0;
+        let ty = pos * 8;
+        let rot = pos * 5;
+        const scale = 1 - pos * 0.045;
+        const opacity = Math.max(1 - pos * 0.15, 0.25);
         const zIndex = total - pos;
 
         if (isTop && (isDragging || dragX !== 0)) {
-          tx += dragX;
-          rot += dragX / 20;
+          tx = dragX;
+          rot = dragX / 20;
+          ty = 0;
         }
 
         const cardEl = document.createElement('div');
         cardEl.className = `deck-card-item ${isTop ? 'is-top' : ''} ${isDragging ? 'is-dragging' : ''}`;
         cardEl.style.zIndex = zIndex;
         cardEl.style.opacity = opacity;
-        cardEl.style.transform = `translateX(${tx}px) rotate(${rot}deg) scale(${scale})`;
+        cardEl.style.transform = `translateX(${tx}px) translateY(${ty}px) rotate(${rot}deg) scale(${scale})`;
         
         if (isTop && isDragging) {
           cardEl.style.transition = 'none';
