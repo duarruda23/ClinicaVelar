@@ -881,8 +881,42 @@
       font-size: 24px;
       letter-spacing: 0.35em;
       text-decoration: none;
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       margin-bottom: var(--space-1);
+    }
+
+    .footer-logo .velar-symbol {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      opacity: 0.9;
+    }
+
+    .cta-final {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-symbol-bg {
+      position: absolute;
+      right: -60px;
+      bottom: -60px;
+      width: 320px;
+      height: 320px;
+      opacity: 0.06;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    @media (max-width: 600px) {
+      .cta-symbol-bg {
+        width: 200px;
+        height: 200px;
+        right: -40px;
+        bottom: -40px;
+      }
     }
     
     .footer-bottom {
@@ -1455,6 +1489,7 @@
 
   <!-- 9. CTA FINAL -->
   <section class="section section-dark cta-final">
+    <img src="simbolo-velar.svg" alt="" class="cta-symbol-bg" aria-hidden="true" style="filter: invert(1);">
     <div class="container">
       <span class="eyebrow">Agendas exclusivas</span>
       <h2 class="h2">Sua próxima versão começa com uma avaliação.</h2>
@@ -1472,7 +1507,10 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <a href="#" class="footer-logo">VELAR</a>
+          <a href="#" class="footer-logo">
+            <img src="simbolo-velar.svg" alt="" class="velar-symbol" aria-hidden="true">
+            VELAR
+          </a>
           <p>Complexo estético multidisciplinar. Referência em cuidado e alta performance.</p>
         </div>
         
@@ -1595,12 +1633,12 @@
     // ============================================================
     const PROCEDURES_DATA = [
       // Ptolomeu
-      { id: 'p1', category: 'ptolomeu', catLabel: 'Harmonização Masculina', title: 'Protocolo Ptolomeu', desc: 'Estruturação mandibular e mento masculino de alta precisão.', img: 'Assets/procedimentos/ptolomeu/ptolomeu-01.jpg' },
-      { id: 'p2', category: 'ptolomeu', catLabel: 'Harmonização Masculina', title: 'Ptolomeu — Mento & Ângulos', desc: 'Projeção de queixo e alinhamento do arco mandibular.', img: 'Assets/procedimentos/ptolomeu/ptolomeu-02.jpg' },
-      { id: 'p3', category: 'ptolomeu', catLabel: 'Harmonização Masculina', title: 'Ptolomeu — Terço Médio', desc: 'Sustentação e definição da estrutura malar masculina.', img: 'Assets/procedimentos/ptolomeu/ptolomeu-03.jpg' },
-      { id: 'p4', category: 'ptolomeu', catLabel: 'Harmonização Masculina', title: 'Ptolomeu — Perfil Masculino', desc: 'Harmonização global preservando a virilidade dos traços.', img: 'Assets/procedimentos/ptolomeu/ptolomeu-04.jpg' },
-      { id: 'p5', category: 'ptolomeu', catLabel: 'Harmonização Masculina', title: 'Ptolomeu — Mandíbula', desc: 'Definição do contorno lateral e mandíbula reta.', img: 'Assets/procedimentos/ptolomeu/ptolomeu-05.jpg' },
-      { id: 'p6', category: 'ptolomeu', catLabel: 'Harmonização Masculina', title: 'Ptolomeu — Projeção Mento', desc: 'Harmonização de queixo retruso com simetria médica.', img: 'Assets/procedimentos/ptolomeu/ptolomeu-06.jpg' },
+      { id: 'p1', category: 'ptolomeu', catLabel: 'Harmonização Masculina', title: 'Protocolo Ptolomeu', desc: 'Estruturação mandibular e mento masculino de alta precisão.', img: 'Assets/procedimentos/ptolomeu/ptolomeu-10.jpg' },
+      { id: 'p2', category: 'ptolomeu', catLabel: 'Harmonização Masculina', title: 'Ptolomeu — Mento & Ângulos', desc: 'Projeção de queixo e alinhamento do arco mandibular.', img: 'Assets/procedimentos/ptolomeu/ptolomeu-12.jpg' },
+      { id: 'p3', category: 'ptolomeu', catLabel: 'Harmonização Masculina', title: 'Ptolomeu — Terço Médio', desc: 'Sustentação e definição da estrutura malar masculina.', img: 'Assets/procedimentos/ptolomeu/ptolomeu-10.jpg' },
+      { id: 'p4', category: 'ptolomeu', catLabel: 'Harmonização Masculina', title: 'Ptolomeu — Perfil Masculino', desc: 'Harmonização global preservando a virilidade dos traços.', img: 'Assets/procedimentos/ptolomeu/ptolomeu-12.jpg' },
+      { id: 'p5', category: 'ptolomeu', catLabel: 'Harmonização Masculina', title: 'Ptolomeu — Mandíbula', desc: 'Definição do contorno lateral e mandíbula reta.', img: 'Assets/procedimentos/ptolomeu/ptolomeu-10.jpg' },
+      { id: 'p6', category: 'ptolomeu', catLabel: 'Harmonização Masculina', title: 'Ptolomeu — Projeção Mento', desc: 'Harmonização de queixo retruso com simetria médica.', img: 'Assets/procedimentos/ptolomeu/ptolomeu-12.jpg' },
       
       // Labial ("Uma Boca é Uma Boca")
       { id: 'l1', category: 'labial', catLabel: 'Preenchimento Labial', title: '"Uma Boca é Uma Boca"', desc: 'Escultura labial anatômica com contorno e viço natural.', img: 'Assets/procedimentos/labial/labial-01.jpg' },

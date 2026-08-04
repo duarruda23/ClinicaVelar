@@ -717,8 +717,16 @@
       font-size: 24px;
       letter-spacing: 0.35em;
       text-decoration: none;
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       margin-bottom: var(--space-1);
+    }
+    .footer-logo .velar-symbol {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      opacity: 0.9;
     }
     
     .compliance-disclaimer {
@@ -1150,7 +1158,10 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <a href="index.html" class="footer-logo">VELAR</a>
+          <a href="index.html" class="footer-logo">
+            <img src="simbolo-velar.svg" alt="" class="velar-symbol" aria-hidden="true">
+            VELAR
+          </a>
           <p>Complexo estético multidisciplinar de alto padrão. Referência em cuidado e alta performance no Agreste.</p>
         </div>
         
