@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página não encontrada | Clínica Velar</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="/simbolo-velar.svg">
+  <link rel="stylesheet" href="/tokens.css">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--velar-ice);
+      color: var(--velar-ink);
+      font-family: var(--velar-font-body);
+    }
+    .nf-wrap {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--space-4);
+    }
+    .nf-logo {
+      font-family: var(--velar-font-display);
+      color: var(--velar-black);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      margin-bottom: var(--space-6);
+    }
+    .nf-label {
+      font-size: var(--fs-label);
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+      color: var(--velar-gray);
+      margin: 0 0 var(--space-2);
+    }
+    .nf-title {
+      font-size: 40px;
+      line-height: 1.1;
+      font-weight: 300;
+      color: var(--velar-ink);
+      margin: 0 0 var(--space-3);
+      max-width: 20ch;
+    }
+    .nf-desc {
+      font-size: var(--fs-body);
+      line-height: var(--lh-body);
+      color: var(--velar-gray);
+      max-width: 42ch;
+      margin: 0 0 var(--space-5);
+    }
+    .nf-cta {
+      display: inline-block;
+      background: var(--velar-black);
+      color: var(--velar-white);
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      transition: opacity 0.2s ease;
+    }
+    .nf-cta:hover { opacity: 0.8; }
+  </style>
+</head>
+<body>
+  <div class="nf-wrap">
+    <div class="nf-logo">VELAR</div>
+    <p class="nf-label">Página não encontrada</p>
+    <h1 class="nf-title">Essa página não existe mais</h1>
+    <p class="nf-desc">O link que você acessou mudou de endereço ou não está mais disponível. Volte para conhecer nossos tratamentos.</p>
+    <a class="nf-cta" href="/">Voltar para o início</a>
+  </div>
+</body>
+</html>
