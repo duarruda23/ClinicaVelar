@@ -70,8 +70,13 @@
       '.velar-modal input{width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;font-size:14px;box-sizing:border-box;}' +
       '.velar-modal-actions{margin-top:18px;display:flex;flex-direction:column;gap:8px;}' +
       '.velar-modal-submit{background:#25D366;color:#fff;border:none;border-radius:8px;padding:12px;font-size:15px;font-weight:600;cursor:pointer;}' +
-      '.velar-modal-skip{background:none;border:none;color:#888;font-size:13px;text-decoration:underline;cursor:pointer;padding:4px;}';
+      '.velar-modal input.velar-invalid{border-color:#e53935;}' +
+      '.velar-modal-error{color:#e53935;font-size:12px;margin:4px 0 0;display:none;}';
     document.head.appendChild(style);
+  }
+
+  function digitsOnly(v) {
+    return (v || '').replace(/\D/g, '');
   }
 
   function openModal(originalHref) {
@@ -84,20 +89,22 @@
       '<p>É rapidinho — assim a equipe já te chama sabendo o que você procura.</p>' +
       '<label>Seu nome</label>' +
       '<input type="text" data-field="nome" placeholder="Como podemos te chamar?">' +
+      '<label>Seu WhatsApp/telefone</label>' +
+      '<input type="tel" data-field="telefone" placeholder="(00) 00000-0000" required>' +
+      '<p class="velar-modal-error" data-error="telefone">Informe um telefone válido pra gente te chamar.</p>' +
       '<label>Bairro/Cidade (opcional)</label>' +
       '<input type="text" data-field="cidade">' +
       '<div class="velar-modal-actions">' +
       '<button type="button" class="velar-modal-submit">Falar no WhatsApp</button>' +
-      '<button type="button" class="velar-modal-skip">Pular e ir direto pro WhatsApp</button>' +
       '</div>' +
       '</div>';
     document.body.appendChild(overlay);
 
-    function finish(nome, cidade) {
+    function finish(nome, telefone, cidade) {
       var tracking = captureTracking();
       sendToKommo({
         nome: nome || '',
-        telefone: '',
+        telefone: telefone,
         vertente: vertente,
         cidade_bairro: cidade || '',
         utm_source: tracking.utm_source || '',
@@ -115,15 +122,27 @@
     }
 
     overlay.querySelector('.velar-modal-submit').addEventListener('click', function () {
-      var nome = overlay.querySelector('[data-field="nome"]').value.trim();
-      var cidade = overlay.querySelector('[data-field="cidade"]').value.trim();
-      finish(nome, cidade);
+      var nomeInput = overlay.querySelector('[data-field="nome"]');
+      var telInput = overlay.querySelector('[data-field="telefone"]');
+      var cidadeInput = overlay.querySelector('[data-field="cidade"]');
+      var nome = nomeInput.value.trim();
+      var telefoneDigits = digitsOnly(telInput.value);
+      var errorEl = overlay.querySelector('[data-error="telefone"]');
+
+      if (telefoneDigits.length < 10) {
+        telInput.classList.add('velar-invalid');
+        errorEl.style.display = 'block';
+        telInput.focus();
+        return;
+      }
+      telInput.classList.remove('velar-invalid');
+      errorEl.style.display = 'none';
+
+      finish(nome, telefoneDigits, cidadeInput.value.trim());
     });
-    overlay.querySelector('.velar-modal-skip').addEventListener('click', function () {
-      finish('', '');
-    });
+
     overlay.addEventListener('click', function (e) {
-      if (e.target === overlay) finish('', '');
+      if (e.target === overlay) overlay.remove();
     });
   }
 
