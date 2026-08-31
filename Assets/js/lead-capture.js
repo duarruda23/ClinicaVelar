@@ -101,7 +101,13 @@
         vertente: vertente,
         cidade_bairro: cidade || '',
         utm_source: tracking.utm_source || '',
+        utm_medium: tracking.utm_medium || '',
         utm_campaign: tracking.utm_campaign || '',
+        utm_content: tracking.utm_content || '',
+        utm_term: tracking.utm_term || '',
+        gclid: tracking.gclid || '',
+        fbclid: tracking.fbclid || '',
+        referrer: tracking.referrer || '',
         page_url: window.location.href
       });
       overlay.remove();
