@@ -1,6 +1,7 @@
 {
   "routes": [
     { "handle": "filesystem" },
+    { "src": "/agende-agora-whatsapp/?$", "dest": "/agende-agora-whatsapp.html" },
     { "src": "/(.*)", "status": 404, "dest": "/404.html" }
   ]
 }

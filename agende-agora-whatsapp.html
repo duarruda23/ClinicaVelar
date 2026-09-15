@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2869797063367041');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2869797063367041&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>Agende agora — Clínica Velar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tokens.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18052134819"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18052134819');
+    gtag('config', 'G-7P4HYCPQFP');
+  </script>
+
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--velar-ice);
+      font-family: var(--velar-font-body);
+      color: var(--velar-ink);
+      text-align: center;
+      padding: var(--space-3);
+    }
+    .redirect-box { max-width: 420px; }
+    .redirect-mark {
+      font-family: var(--velar-font-display);
+      font-size: 22px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--velar-black);
+      margin-bottom: var(--space-4);
+    }
+    .spinner {
+      width: 34px;
+      height: 34px;
+      margin: 0 auto var(--space-3);
+      border-radius: 50%;
+      border: 3px solid var(--velar-line);
+      border-top-color: var(--velar-black);
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .redirect-title {
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0 0 8px;
+      color: var(--velar-ink);
+    }
+    .redirect-text {
+      font-size: 14px;
+      color: var(--velar-gray);
+      line-height: 1.6;
+      margin: 0 0 var(--space-4);
+    }
+    .redirect-fallback {
+      display: inline-block;
+      background: var(--velar-black);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="redirect-box">
+    <div class="redirect-mark">VELAR</div>
+    <div class="spinner" aria-hidden="true"></div>
+    <p class="redirect-title">Te levando para o WhatsApp…</p>
+    <p class="redirect-text">Se não abrir automaticamente em alguns segundos, toque no botão abaixo.</p>
+    <a id="wa-fallback-link" class="redirect-fallback" href="https://api.whatsapp.com/message/LKRFTYXB5UGTB1">Abrir WhatsApp</a>
+  </div>
+
+  <script>
+    (function () {
+      var WA_BASE_URL = 'https://api.whatsapp.com/message/LKRFTYXB5UGTB1';
+      var WA_MESSAGE = 'Olá! Vim pelo Instagram e quero aproveitar a Semana de Aniversário da Dra. Laisy 💋 Quero agendar minha avaliação para o procedimento Uma Boca é Uma Boca.';
+
+      var waUrl = WA_BASE_URL + '?text=' + encodeURIComponent(WA_MESSAGE);
+      document.getElementById('wa-fallback-link').href = waUrl;
+
+      // Repassa os parâmetros utm_* recebidos (ex: vindos do anúncio) pro dataLayer,
+      // já que o GA4 lê a URL de entrada automaticamente, mas o evento abaixo
+      // garante que a conversão fique associada à mesma sessão antes do redirect sair do domínio.
+      var params = new URLSearchParams(window.location.search);
+      var utmData = {};
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (key) {
+        if (params.get(key)) utmData[key] = params.get(key);
+      });
+
+      var redirected = false;
+      function goToWhatsApp() {
+        if (redirected) return;
+        redirected = true;
+        window.location.href = waUrl;
+      }
+
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Contact', { content_name: 'agende-agora-whatsapp' });
+      }
+
+      // Evento GA4 (lado Analytics)
+      gtag('event', 'generate_lead', Object.assign({
+        event_category: 'Engagement',
+        event_label: 'agende-agora-whatsapp',
+        method: 'whatsapp'
+      }, utmData));
+
+      // Conversão do Google Ads (mesmo padrão já usado no site pros cliques em WhatsApp)
+      gtag('event', 'conversion', {
+        send_to: 'AW-18052134819/zp0jCLnZmtQcEKPv9p9D',
+        event_callback: goToWhatsApp,
+        event_timeout: 1200
+      });
+
+      // Rede de segurança: garante o redirect mesmo se o gtag não carregar/responder
+      setTimeout(goToWhatsApp, 1200);
+    })();
+  </script>
+</body>
+</html>
