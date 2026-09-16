@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T8855MFS');</script>
+  <!-- End Google Tag Manager -->
   <!-- Meta Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -377,6 +384,10 @@
   </script>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T8855MFS"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <!-- BARRA DE URGÊNCIA -->
   <div class="urgency-bar">
@@ -510,7 +521,7 @@
       </div>
 
       <div style="text-align:center; margin-top: var(--space-5);">
-        <a href="https://wa.me/5581981604549?text=Ol%C3%A1!%20Vi%20os%20resultados%20do%20Uma%20Boca%20%C3%A9%20Uma%20Boca%20e%20quero%20garantir%20o%20presente%20de%2050%25%20OFF" target="_blank" class="btn btn-red">Quero um resultado assim</a>
+        <a href="https://wa.me/5581981604549?text=Ol%C3%A1!%20Vi%20os%20resultados%20do%20Uma%20Boca%20%C3%A9%20Uma%20Boca%20e%20quero%20garantir%20o%20presente%20de%2050%25%20OFF" target="_blank" class="btn btn-red" id="results-cta-btn">Quero um resultado assim</a>
       </div>
     </div>
   </section>
@@ -551,7 +562,7 @@
         <div class="old">De R$ 2.490,00</div>
         <div class="new">R$ 1.250,00</div>
         <div class="inst">à vista, ou 10x de R$ 150,00 no cartão</div>
-        <a href="https://wa.me/5581981604549?text=Ol%C3%A1!%20Quero%20garantir%20o%20Uma%20Boca%20%C3%A9%20Uma%20Boca%20com%2050%25%20OFF%20do%20anivers%C3%A1rio%20da%20Dra.%20Laisy" target="_blank" class="btn btn-red" style="width:100%;">Garantir meu presente</a>
+        <a href="https://wa.me/5581981604549?text=Ol%C3%A1!%20Quero%20garantir%20o%20Uma%20Boca%20%C3%A9%20Uma%20Boca%20com%2050%25%20OFF%20do%20anivers%C3%A1rio%20da%20Dra.%20Laisy" target="_blank" class="btn btn-red" style="width:100%;" id="offer-cta-btn">Garantir meu presente</a>
         <div class="window">Válido de quarta a sábado, sujeito à avaliação clínica e disponibilidade de agenda em Caruaru/PE.</div>
       </div>
     </div>
@@ -783,11 +794,14 @@
     });
 
     // Conversão: WhatsApp
-    ['floating-wa-btn', 'hero-primary-cta', 'final-cta-btn', 'header-cta-btn'].forEach(function (id) {
+    ['floating-wa-btn', 'hero-primary-cta', 'final-cta-btn', 'header-cta-btn', 'results-cta-btn', 'offer-cta-btn'].forEach(function (id) {
       var el = document.getElementById(id);
       if (el) {
         el.addEventListener('click', function () {
-          if (typeof fbq !== 'undefined') { fbq('track', 'Contact', { content_name: id }); }
+          if (typeof fbq !== 'undefined') {
+            fbq('track', 'Contact', { content_name: id });
+            fbq('trackCustom', 'contato UBEUB 2026', { content_name: id });
+          }
           if (typeof gtag !== 'undefined') { gtag('event', 'conversion', { 'send_to': 'AW-18052134819/zp0jCLnZmtQcEKPv9p9D' }); }
         });
       }
