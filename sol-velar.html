@@ -11,14 +11,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#1E5A37">
-  <link rel="icon" type="image/png" href="/Assets/sol-velar/sol-velar-favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Assets/sol-velar/sol-velar-favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/Assets/sol-velar/sol-velar-favicon.png">
+  <link rel="apple-touch-icon" href="/Assets/sol-velar/sol-velar-apple-touch.png">
 
   <!-- SEO -->
-  <title>Sol Velar: rotina de pele no verão | Clínica Velar</title>
-  <meta name="description" content="Grupo gratuito no WhatsApp com a Dra. Laisy Velar: rotina de pele pro verão, protetor solar e cuidados depois da praia. Clínica Velar, Caruaru/PE.">
+  <title>Sol Velar: corpo e pele prontos pro verão | Clínica Velar</title>
+  <meta name="description" content="Grupo gratuito no WhatsApp com a Dra. Laisy Velar sobre cuidados de corpo e pele no verão: gordura localizada, bumbum, flacidez e rotina de pele. Caruaru/PE.">
   <link rel="canonical" href="https://clinicavelar.com.br/sol-velar">
-  <meta property="og:title" content="Sol Velar: o clube de verão da pele | Clínica Velar">
-  <meta property="og:description" content="Entre no grupo gratuito da Dra. Laisy Velar no WhatsApp e cuide da pele durante a temporada de sol.">
+  <meta property="og:title" content="Sol Velar: o clube de verão da Clínica Velar">
+  <meta property="og:description" content="Entre no grupo gratuito da Dra. Laisy Velar no WhatsApp e prepare corpo e pele pra temporada de sol.">
   <meta property="og:image" content="https://clinicavelar.com.br/Assets/sol-velar/sol-velar-og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -36,11 +38,11 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Sol Velar: o clube de verão da pele",
+    "name": "Sol Velar: o clube de verão da Clínica Velar",
     "url": "https://clinicavelar.com.br/sol-velar",
     "inLanguage": "pt-BR",
-    "description": "Grupo gratuito no WhatsApp em que a Dra. Laisy Velar compartilha rotina de cuidados com a pele durante o verão.",
-    "author": { "@type": "Person", "name": "Dra. Laisy Velar", "jobTitle": "Médica" },
+    "description": "Grupo gratuito no WhatsApp em que a Dra. Laisy Velar compartilha cuidados com o corpo e a pele durante o verão.",
+    "author": { "@type": "Person", "name": "Dra. Laisy Velar", "jobTitle": "Especialista em Harmonização Facial e Skincare" },
     "publisher": {
       "@type": "MedicalClinic",
       "name": "Clínica Velar",
@@ -351,6 +353,19 @@
       .quem .arco { margin: 0 auto; width: 100%; max-width: 360px; }
       .final-grid { grid-template-columns: minmax(0, 1fr); }
       .final .arco { order: -1; margin: 0 auto; max-width: 340px; }
+
+      /* Mobile: vídeo abre a página e tudo fica centralizado */
+      .hero { padding-top: 32px; }
+      .hero-brasao { display: none; }
+      .hero-video { order: -1; aspect-ratio: 4 / 5; width: min(100%, 360px); }
+      .hero-grid, .ideia-grid > div, .sec-head, .quem-grid > div, .final-in, .faq-grid > div:first-child { text-align: center; }
+      .sec-head, .final-in { margin-inline: auto; }
+      .lead { margin-inline: auto; }
+      .ondas { display: block; margin-inline: auto; }
+      .areas { justify-content: center; }
+      .card-in { justify-items: center; text-align: center; }
+      .passos li { justify-items: center; text-align: center; }
+      .nota { justify-content: center; text-align: left; }
     }
     @media (max-width: 640px) {
       .cards, .passos { grid-template-columns: minmax(0, 1fr); }
@@ -358,7 +373,8 @@
       .barra { display: block; }
       body { padding-bottom: 84px; }
       .ideia-fotos .arco:last-child { transform: translateY(24px); }
-      .rodape { flex-direction: column; align-items: flex-start; }
+      .rodape, .rodape-marca { flex-direction: column; align-items: center; text-align: center; }
+      .rodape nav { justify-content: center; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -388,8 +404,8 @@
         <div>
           <img class="hero-brasao" src="/Assets/sol-velar/sol-velar-brasao.webp" width="480" height="762" alt="Brasão Sol Velar, Clube de Verão, Est. 2026">
           <p class="eyebrow">Clube de verão da Clínica Velar</p>
-          <h1 id="titulo">Seu verão começa <em>na pele.</em></h1>
-          <p class="lead">A Dra. Laisy Velar abriu um grupo no WhatsApp pra falar de pele durante a temporada de sol. Conteúdo curto, direto e que cabe na sua rotina.</p>
+          <h1 id="titulo">Corpo e pele <em>prontos pro verão.</em></h1>
+          <p class="lead">A Dra. Laisy Velar abriu um grupo no WhatsApp pra falar de corpo e pele durante a temporada de sol. Gordura localizada, bumbum, flacidez e rotina de pele, em conteúdo curto e direto.</p>
           <a class="btn btn-verde js-grupo" href="https://chat.whatsapp.com/LINK_DO_GRUPO_PENDENTE" target="_blank" rel="noopener" data-local="hero">
             <svg aria-hidden="true"><use href="#i-wa"/></svg>Quero entrar no grupo
           </a>
@@ -413,9 +429,9 @@
         <div class="revela">
           <svg class="ondas" aria-hidden="true"><use href="#i-ondas"/></svg>
           <p class="eyebrow">A ideia</p>
-          <h2 id="t-ideia">O verão é a melhor época do ano. Pra pele, <em>é a mais exigente.</em></h2>
-          <p class="lead">Sol forte, calor, praia, piscina. A pele sente tudo isso, e é justamente agora que aparecem mancha, oleosidade, ressecamento e a dúvida de sempre sobre qual protetor usar.</p>
-          <p class="lead">O Sol Velar existe pra isso. É um espaço onde a Dra. Laisy mostra, na prática, a rotina que ela recomenda pra passar a estação cuidando da pele.</p>
+          <h2 id="t-ideia">O verão é quando a gente mais se mostra. <em>E quando o corpo mais pede cuidado.</em></h2>
+          <p class="lead">Biquíni, praia, piscina, sol forte. É nessa época que a gordura localizada incomoda, que a flacidez aparece no espelho e que a pele sente o calor e o sol.</p>
+          <p class="lead">O Sol Velar existe pra isso. É um espaço onde a Dra. Laisy mostra, na prática, como cuidar do corpo e da pele pra aproveitar a estação do jeito que você quer.</p>
         </div>
       </div>
     </section>
@@ -429,19 +445,19 @@
         </div>
         <div class="cards">
           <article class="card revela"><div class="card-in">
+            <svg class="ico" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="16" r="9"/><circle cx="14" cy="16" r="3"/><path d="M14 25h17v5H14"/><path d="M19 25v2.5M23 25v2.5M27 25v2.5"/></svg>
+            <h3>Gordura localizada e contorno</h3>
+            <p>O que realmente ajuda a reduzir medidas e desenhar o contorno do corpo, e o que é só promessa de verão.</p>
+          </div></article>
+          <article class="card revela"><div class="card-in">
+            <svg class="ico" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4c-1 5 0 8-2 12-2 5-1 10 3 13 3 2 5 2 5 2"/><path d="M24 4c1 5 0 8 2 12 2 5 1 10-3 13-3 2-5 2-5 2"/><path d="M18 22v9"/></svg>
+            <h3>Bumbum e firmeza</h3>
+            <p>Como tratar flacidez e celulite e quanto tempo antes do verão vale a pena começar.</p>
+          </div></article>
+          <article class="card revela"><div class="card-in">
             <svg class="ico" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="18" cy="18" r="6"/><path d="M18 4v4M18 28v4M4 18h4M28 18h4M8.1 8.1l2.8 2.8M25.1 25.1l2.8 2.8M8.1 27.9l2.8-2.8M25.1 10.9l2.8-2.8"/></svg>
-            <h3>Rotina de manhã e de noite</h3>
-            <p>O passo a passo que a Dra. Laisy indica pra pele no verão, sem precisar de doze produtos.</p>
-          </div></article>
-          <article class="card revela"><div class="card-in">
-            <svg class="ico" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="11" y="10" width="14" height="22" rx="3.5"/><path d="M14 10V5h8v5M14 19h8"/></svg>
-            <h3>Protetor solar sem erro</h3>
-            <p>Quanto passar, de quanto em quanto tempo reaplicar e como escolher o seu.</p>
-          </div></article>
-          <article class="card revela"><div class="card-in">
-            <svg class="ico" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 24q3.5-3 7 0t7 0 7 0 7 0"/><path d="M4 30q3.5-3 7 0t7 0 7 0 7 0"/><path d="M11 18a7 7 0 0 1 14 0"/><path d="M18 5v3"/></svg>
-            <h3>Pele depois da praia</h3>
-            <p>O que fazer quando a pele volta vermelha, ressecada ou manchada do fim de semana.</p>
+            <h3>Pele no sol</h3>
+            <p>Rotina de manhã e de noite, protetor certo e o que fazer quando a pele volta manchada da praia.</p>
           </div></article>
           <article class="card revela"><div class="card-in">
             <svg class="ico" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h24v16H15l-6 5v-5H6z"/><path d="M15 14.5a3 3 0 1 1 4 2.8c-.7.3-1 .9-1 1.6"/><path d="M18 21.5h.01"/></svg>
@@ -459,13 +475,13 @@
         <div class="revela">
           <p class="eyebrow">Quem conduz o clube</p>
           <h2 id="t-quem">Dra. Laisy <em>Velar</em></h2>
-          <p class="lead">Médica responsável pela Clínica Velar, em Caruaru. Trabalha com rejuvenescimento, bioestimuladores de colágeno e tecnologias pra qualidade de pele, como Ultherapy e PISOM.</p>
-          <p class="lead">No Sol Velar, ela traz o que aplica no consultório num formato que dá pra seguir em casa.</p>
+          <p class="lead">Especialista em harmonização facial e skincare e responsável técnica da Clínica Velar, em Caruaru. Trabalha com rejuvenescimento, bioestimuladores de colágeno e tecnologias como Ultherapy e PISOM.</p>
+          <p class="lead">No Sol Velar, ela reúne o que a equipe da Velar faz na clínica, do rosto ao corpo, num formato que dá pra acompanhar pelo celular.</p>
           <ul class="areas" aria-label="Áreas de atuação">
-            <li>Qualidade de pele</li>
-            <li>Rejuvenescimento</li>
-            <li>Bioestimuladores de colágeno</li>
             <li>Harmonização facial</li>
+            <li>Skincare</li>
+            <li>Bioestimuladores de colágeno</li>
+            <li>Rejuvenescimento</li>
           </ul>
         </div>
       </div>
@@ -523,7 +539,7 @@
       <div class="container final-grid">
         <div class="final-in revela">
           <p class="eyebrow">Sol Velar · Est. 2026</p>
-          <h2 id="t-final">Entre no Sol Velar e passe o verão com a <em>pele em dia.</em></h2>
+          <h2 id="t-final">Entre no Sol Velar e chegue ao verão com <em>corpo e pele em dia.</em></h2>
           <a class="btn btn-claro js-grupo" href="https://chat.whatsapp.com/LINK_DO_GRUPO_PENDENTE" target="_blank" rel="noopener" data-local="final">
             <svg aria-hidden="true"><use href="#i-wa"/></svg>Quero entrar no grupo
           </a>
