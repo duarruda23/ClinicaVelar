@@ -4,6 +4,7 @@
     { "src": "/agende-agora-whatsapp/?$", "dest": "/agende-agora-whatsapp.html" },
     { "src": "/presente-aniversario-dra-laisy/?$", "dest": "/presente-aniversario-dra-laisy.html" },
     { "src": "/sol-velar/?$", "dest": "/sol-velar.html" },
+    { "src": "/projeto-sol-velar/?$", "dest": "/projeto-sol-velar.html" },
     { "src": "/(.*)", "status": 404, "dest": "/404.html" }
   ]
 }
